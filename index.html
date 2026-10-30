@@ -311,12 +311,19 @@
                 <div id="test-questions" class="space-y-3 max-h-56 overflow-y-auto pr-1"></div>
 
                 <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5 text-xs">
-                    <p class="font-bold text-slate-800">결과 저장을 위한 정보 입력</p>
+                    <p class="font-bold text-slate-800">검사자 정보 및 검사 유형</p>
+                    <label class="block text-[10px] font-semibold text-slate-600" for="test-user-type">검사 유형</label>
+                    <select id="test-user-type" onchange="toggleTestApplicationCode('test')" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                        <option value="visitor">일반 방문자 직접 검사</option>
+                        <option value="applicant">서비스 신청자 검사</option>
+                    </select>
                     <div class="grid grid-cols-2 gap-2">
-                        <input type="text" id="test-user-name" placeholder="성함" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
-                        <input type="tel" id="test-user-phone" placeholder="연락처 (숫자만)" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                        <input type="text" id="test-user-name" placeholder="검사자 성함" autocomplete="name" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                        <input type="tel" id="test-user-phone" placeholder="연락처 (숫자만)" autocomplete="tel" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
                     </div>
-                    <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 입력해주세요.</p>
+                    <input type="text" id="test-application-code" placeholder="서비스 신청 접수번호 (예: CH-1234)" class="hidden w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                    <p class="text-[10px] text-slate-500">서비스 신청자는 접수번호를 입력하면 검사 기록에 함께 저장됩니다.</p>
+                    <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 입력하고, 서비스 신청자는 접수번호도 입력해주세요.</p>
                 </div>
 
                 <button type="button" onclick="calculateTestResult()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-full text-xs shadow-md hover:bg-blue-700 transition-all cursor-pointer">
@@ -368,6 +375,22 @@
                         <span>← 이전 화면</span>
                     </button>
                     <span class="text-[10px] bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full font-medium">인기 심리테스트 베스트 10 (각 10문항)</span>
+                </div>
+
+                <!-- 재미있는 심리검사도 검사자 정보를 받아 일반 방문자와 서비스 신청자를 구분 -->
+                <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5">
+                    <p class="font-bold text-slate-800">검사자 정보 및 검사 유형</p>
+                    <select id="fun-user-type" onchange="toggleTestApplicationCode('fun')" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-none text-xs">
+                        <option value="visitor">일반 방문자 직접 검사</option>
+                        <option value="applicant">서비스 신청자 검사</option>
+                    </select>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="text" id="fun-user-name" placeholder="검사자 성함" autocomplete="name" class="min-w-0 px-3 py-2 rounded-xl border border-slate-200 outline-none">
+                        <input type="tel" id="fun-user-phone" placeholder="연락처 (숫자만)" autocomplete="tel" class="min-w-0 px-3 py-2 rounded-xl border border-slate-200 outline-none">
+                    </div>
+                    <input type="text" id="fun-application-code" placeholder="서비스 신청 접수번호 (예: CH-1234)" class="hidden w-full px-3 py-2 rounded-xl border border-slate-200 outline-none">
+                    <p class="text-[10px] text-slate-500">서비스 신청자는 접수번호를 입력해 신청 기록과 연결할 수 있습니다.</p>
+                    <p id="fun-user-err" class="hidden text-rose-500 text-[10px]">이름과 연락처를 입력하고, 서비스 신청자는 접수번호도 입력해주세요.</p>
                 </div>
 
                 <!-- 검사 목록 선택 화면 -->
@@ -678,7 +701,7 @@
                     <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
                         <div>
                             <h3 class="font-bold text-slate-800 text-xs">관리자 실시간 대시보드</h3>
-                            <p class="text-[10px] text-slate-500">모든 기기에서 접수된 클라우드 데이터 관리</p>
+                            <p class="text-[10px] text-slate-500">Firebase 실제 프로젝트 설정 시 여러 기기에서 공유됩니다. 미설정 시 현재 브라우저에만 저장됩니다.</p>
                         </div>
                         <div class="flex items-center space-x-1.5">
                             <button type="button" onclick="lockAdmin()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold cursor-pointer">잠금</button>
@@ -702,7 +725,8 @@
                     </div>
 
                     <div class="space-y-2 pt-2">
-                        <h4 class="font-bold text-slate-800 text-xs">💖 실시간 클라우드 심리검사 결과</h4>
+                        <h4 class="font-bold text-slate-800 text-xs">💖 심리검사 결과 및 검사자 구분</h4>
+                        <p class="text-[10px] text-slate-500">검사 완료 알림 이메일에는 검사 점수/소견을 포함하지 않습니다. 상세 결과는 관리자 화면에서 확인하세요.</p>
                         <div id="admin-test-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
                     </div>
                 </div>
@@ -731,6 +755,8 @@
             appId: "1:000:web:000"
         };
 
+        // Formspree 계정에서 실제 수신 이메일과 폼 활성 상태를 확인하세요.
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlezzbdo';
         let app, db, auth;
         try {
             app = initializeApp(firebaseConfig);
@@ -748,7 +774,7 @@
 
         window.cloudSaveApplication = async function(regData) {
             try {
-                fetch('https://formspree.io/f/mlezzbdo', {
+                const emailResponse = await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -761,12 +787,14 @@
                         symptoms: Array.isArray(regData.symptoms) ? regData.symptoms.join(', ') : '없음',
                         region: regData.region,
                         services: Array.isArray(regData.services) ? regData.services.join(', ') : '없음',
-                        date: regData.date
+                        date: regData.date,
+                        event: '서비스 신청 접수'
                     })
                 });
-            } catch(err) {}
+                if (!emailResponse.ok) console.warn('서비스 신청 이메일 발송 설정을 확인하세요:', emailResponse.status);
+            } catch(err) { console.warn('서비스 신청 이메일 발송 실패:', err); }
 
-            if (db) {
+            if (db && firebaseConfig.projectId !== 'dummy-project') {
                 try {
                     const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
                     await addDoc(colRef, regData);
@@ -779,16 +807,48 @@
         };
 
         window.cloudSaveTestRecord = async function(testRecord) {
-            if (db) {
+            const record = {
+                ...testRecord,
+                recordId: testRecord.recordId || (crypto.randomUUID ? crypto.randomUUID() : `TEST-${Date.now()}-${Math.random().toString(36).slice(2,8)}`),
+                savedAt: new Date().toISOString(),
+                status: 'completed'
+            };
+            let savedToCloud = false;
+            if (db && firebaseConfig.projectId !== 'dummy-project') {
                 try {
                     const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'records');
-                    await addDoc(colRef, testRecord);
+                    await addDoc(colRef, record);
+                    savedToCloud = true;
                 } catch(e) {
-                    fallbackSave('records', testRecord);
+                    console.error('검사 결과 클라우드 저장 실패:', e);
                 }
-            } else {
-                fallbackSave('records', testRecord);
             }
+            // Firebase가 실제 설정되어 있지 않으면 현재 브라우저에만 저장됩니다.
+            if (!savedToCloud) fallbackSave('records', record);
+
+            // 이메일에는 민감한 검사 점수/소견을 넣지 않고 접수 알림만 보냅니다.
+            try {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        subject: `[청향심리상담센터] 심리검사 완료 알림 - ${record.testName || '심리검사'}`,
+                        event: '심리검사 완료',
+                        test_type: record.sourceType === 'applicant' ? '서비스 신청자 검사' : '일반 방문자 직접 검사',
+                        test_name: record.testName || '심리검사',
+                        name: record.name || '',
+                        phone: record.phone || '',
+                        application_code: record.applicationCode || '해당 없음',
+                        completed_at: record.completedAt || record.date || new Date().toLocaleString('ko-KR'),
+                        record_id: record.recordId,
+                        message: '검사 결과 상세 내용은 관리자 화면에서 확인하세요. 이 이메일에는 점수와 소견을 포함하지 않았습니다.'
+                    })
+                });
+                if (!response.ok) console.warn('검사 완료 이메일 발송 설정을 확인하세요:', response.status);
+            } catch(e) {
+                console.warn('검사 완료 이메일 발송 실패:', e);
+            }
+            return { ...record, savedToCloud };
         };
 
         window.cloudFetchAllData = async function() {
@@ -799,7 +859,7 @@
                 recs = JSON.parse(localStorage.getItem('cheonghyang_records') || '[]');
             } catch(e) {}
 
-            if (db) {
+            if (db && firebaseConfig.projectId !== 'dummy-project') {
                 try {
                     const appSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'applications'));
                     appSnap.forEach(doc => {
@@ -809,7 +869,8 @@
 
                     const recSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'records'));
                     recSnap.forEach(doc => {
-                        recs.push(doc.data());
+                        const data = doc.data();
+                        if (!recs.some(r => r.recordId && r.recordId === data.recordId)) recs.push(data);
                     });
                 } catch(e) {}
             }
@@ -831,6 +892,38 @@
         const totalRegSteps = 5;
         let userData = { code: '', pin: '', name: '', phone: '', gender: '', age: '', disability: '', treatment: '', symptoms: [], region: '', services: [], date: '' };
         let viewHistory = ['home'];
+
+        function toggleTestApplicationCode(prefix) {
+            const typeEl = document.getElementById(prefix === 'fun' ? 'fun-user-type' : 'test-user-type');
+            const codeEl = document.getElementById(prefix === 'fun' ? 'fun-application-code' : 'test-application-code');
+            if (typeEl && codeEl) {
+                const isApplicant = typeEl.value === 'applicant';
+                codeEl.classList.toggle('hidden', !isApplicant);
+                codeEl.required = isApplicant;
+            }
+        }
+
+        function readTestIdentity(prefix) {
+            const isFun = prefix === 'fun';
+            const type = document.getElementById(isFun ? 'fun-user-type' : 'test-user-type').value;
+            const name = document.getElementById(isFun ? 'fun-user-name' : 'test-user-name').value.trim();
+            const phone = document.getElementById(isFun ? 'fun-user-phone' : 'test-user-phone').value.trim();
+            const code = document.getElementById(isFun ? 'fun-application-code' : 'test-application-code').value.trim().toUpperCase();
+            const err = document.getElementById(isFun ? 'fun-user-err' : 'test-user-err');
+            if (!name || !phone || (type === 'applicant' && !code)) {
+                err.classList.remove('hidden');
+                return null;
+            }
+            err.classList.add('hidden');
+            return {
+                sourceType: type,
+                sourceLabel: type === 'applicant' ? '서비스 신청자 검사' : '일반 방문자 직접 검사',
+                name,
+                phone,
+                applicationCode: type === 'applicant' ? code : '',
+                recordId: (crypto.randomUUID ? crypto.randomUUID() : `TEST-${Date.now()}-${Math.random().toString(36).slice(2,8)}`)
+            };
+        }
 
         function switchView(viewId, isBack = false) {
             const views = ['home', 'about', 'services', 'info', 'self-check', 'test-result', 'fun-tests', 'register', 'lookup', 'admin'];
@@ -1126,6 +1219,9 @@
         }
 
         function startFunTest(id) {
+            const identity = readTestIdentity('fun');
+            if (!identity) return;
+            window.currentFunTestIdentity = identity;
             activeTest = funTestsList.find(t => t.id === id);
             currentFunQIdx = 0;
             userFunAnswers = [];
@@ -1178,19 +1274,18 @@
             document.getElementById('fun-res-score').innerText = `총점 ${totalScore}점 - ${matchedRes.title}`;
             document.getElementById('fun-res-desc').innerText = matchedRes.desc;
 
+            const identity = window.currentFunTestIdentity || {};
+            const completedAt = new Date().toLocaleString('ko-KR');
             const funRecord = {
                 type: 'test',
+                ...identity,
                 testName: activeTest.title,
-                name: "방문자",
-                phone: "010-0000-0000",
                 score: `${totalScore}점 (${matchedRes.title})`,
                 desc: matchedRes.desc,
-                date: new Date().toLocaleDateString()
+                date: new Date().toLocaleDateString('ko-KR'),
+                completedAt
             };
-            
-            if (window.cloudSaveTestRecord) {
-                window.cloudSaveTestRecord(funRecord);
-            }
+            if (window.cloudSaveTestRecord) window.cloudSaveTestRecord(funRecord);
         }
 
         function backToFunList() {
@@ -1439,14 +1534,9 @@
         }
 
         function calculateTestResult() {
-            const name = document.getElementById('test-user-name').value.trim();
-            const phone = document.getElementById('test-user-phone').value.trim();
-            const err = document.getElementById('test-user-err');
-            if (!name || !phone) {
-                err.classList.remove('hidden');
-                return;
-            }
-            err.classList.add('hidden');
+            const identity = readTestIdentity('test');
+            if (!identity) return;
+            const { name, phone } = identity;
 
             const data = testsData[currentTestType];
             let total = 0;
@@ -1468,17 +1558,15 @@
 
             const testRecord = {
                 type: 'test',
+                ...identity,
                 testName: data.name,
-                name: name,
-                phone: phone,
                 score: total + '점',
                 desc: desc,
-                date: new Date().toLocaleDateString()
+                date: new Date().toLocaleDateString('ko-KR'),
+                completedAt: new Date().toLocaleString('ko-KR')
             };
 
-            if (window.cloudSaveTestRecord) {
-                window.cloudSaveTestRecord(testRecord);
-            }
+            if (window.cloudSaveTestRecord) window.cloudSaveTestRecord(testRecord);
 
             document.getElementById('res-test-name').innerText = data.name;
             document.getElementById('res-user-info').innerText = `${name} (${phone})`;
@@ -1846,10 +1934,14 @@
                 testListEl.innerHTML = tests.map((t, idx) => `
                     <div class="bg-white rounded-xl border border-slate-200 text-xs overflow-hidden shadow-sm">
                         <div onclick="toggleAdminDetail('test', ${idx})" class="p-2.5 flex justify-between items-center cursor-pointer hover:bg-slate-50 font-bold text-slate-800 text-[11px]">
-                            <span class="truncate pr-2">${idx+1}. [검사] ${t.name || '방문자'} (${t.phone || '-'}) - <span class="text-pink-600 font-normal">${t.testName || '심리검사'}</span></span>
+                            <span class="truncate pr-2">${idx+1}. [${t.sourceType === 'applicant' ? '신청자 검사' : '방문자 검사'}] ${t.name || '이름 미입력'} (${t.phone || '-'}) - <span class="text-pink-600 font-normal">${t.testName || '심리검사'}</span></span>
                             <span class="text-[9px] text-slate-400 whitespace-nowrap">${t.date || ''} ▼</span>
                         </div>
                         <div id="admin-test-detail-${idx}" class="hidden p-2.5 bg-slate-50 border-t border-slate-100 space-y-1 text-slate-600 text-[10px]">
+                            <p>· 검사 유형: ${t.sourceLabel || (t.sourceType === 'applicant' ? '서비스 신청자 검사' : '일반 방문자 직접 검사')}</p>
+                            <p>· 신청 접수번호: ${t.applicationCode || '해당 없음'}</p>
+                            <p>· 검사 완료일시: ${t.completedAt || t.date || '-'}</p>
+                            <p>· 기록 ID: ${t.recordId || '-'}</p>
                             <p class="font-bold text-pink-700">· 결과: ${t.score || '-'}</p>
                             <p>· 소견: ${t.desc || '-'}</p>
                         </div>
