@@ -1653,18 +1653,45 @@
                 saveStoredData('applications', allRegs);
                 memoryStore.applications = allRegs;
 
-                // 시스템 백그라운드에서 관리자 알림(이메일 연동 등) 자동 트리거 시뮬레이션
-                triggerBackgroundNotification(userData);
+                // 폼스프리(Formspree) API를 통해 관리자 메일함(kdw4203@naver.com)으로 즉시 백그라운드 전송
+                sendEmailViaFormspree(userData);
 
                 currentRegStep++;
                 updateRegView();
             }
         }
 
-        // 백그라운드 시스템 자동 접수 알림 처리 함수
-        function triggerBackgroundNotification(data) {
-            // 콘솔 및 내부 시스템 로그 기록 (실제 서버리스 환경에서 메일 전송 API 호출)
-            console.log("System Background Notification Sent to Admin (kdw4203@naver.com):", data);
+        // 폼스프리 백그라운드 자동 이메일 전송 함수
+        function sendEmailViaFormspree(data) {
+            const formData = {
+                subject: `[청향심리상담센터] ${data.name}님 서비스 신청서`,
+                code: data.code,
+                name: data.name,
+                phone: data.phone,
+                gender_age: `${data.gender} / 만 ${data.age}세`,
+                history: `장애(${data.disability}) / 진료(${data.treatment})`,
+                symptoms: Array.isArray(data.symptoms) ? data.symptoms.join(', ') : '없음',
+                region: data.region,
+                services: Array.isArray(data.services) ? data.services.join(', ') : '없음',
+                date: data.date
+            };
+
+            fetch('https://formspree.io/f/mlezzbdo', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Email successfully sent to admin via Formspree.");
+                } else {
+                    console.error("Failed to send email via Formspree.");
+                }
+            }).catch(error => {
+                console.error("Network error while sending email:", error);
+            });
         }
 
         function prevRegStep() {
