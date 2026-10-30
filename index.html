@@ -274,57 +274,57 @@
                         <h4 id="detail-topic-title" class="font-bold text-blue-800 text-xs"></h4>
                         <button type="button" onclick="closeTopicDetail()" class="text-slate-400 hover:text-slate-700 text-[10px] font-bold px-2 py-0.5 bg-white rounded-full shadow-sm cursor-pointer">✕ 닫기</button>
                     </div>
-                    <p id="detail-topic-desc" class="text-slate-700 text-[11px] leading-relaxed"></p>
+                    <p id="detail-topic-desc" class="text-slate-700 text-[11px] leading-relaxed whitespace-pre-line"></p>
                 </div>
                 <button type="button" onclick="switchView('self-check')" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full text-xs shadow-md transition-all cursor-pointer">내 마음 상태 자가진단하기</button>
             </div>
 
             <!-- VIEW: 자가진단 화면 -->
-        <div id="view-self-check" class="hidden space-y-4">
-            <div class="flex items-center justify-between pb-1">
-                <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
-                    <span>← 이전 화면</span>
-                </button>
-                <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-medium">공인 표준 척도 검사</span>
-            </div>
-            <div class="space-y-0.5">
-                <h3 class="text-sm font-bold text-slate-800">자가진단 검사</h3>
-                <p class="text-[10px] text-slate-500">임상 및 정신건강 전문기관에서 공인된 표준 척도를 바탕으로 마음 상태를 체크합니다.</p>
-            </div>
-
-            <!-- 자가진단 탭 버튼 -->
-            <div class="grid grid-cols-3 gap-1 text-[10px] font-semibold">
-                <button type="button" onclick="switchTestType('cesd')" id="tab-cesd" class="py-2 rounded-xl bg-blue-600 text-white shadow-sm transition-all cursor-pointer">우울 (CES-D)</button>
-                <button type="button" onclick="switchTestType('gad')" id="tab-gad" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">불안 (GAD-7)</button>
-                <button type="button" onclick="switchTestType('pss')" id="tab-pss" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">스트레스 (PSS)</button>
-                <button type="button" onclick="switchTestType('cape')" id="tab-cape" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">조기정신증</button>
-                <button type="button" onclick="switchTestType('sbq')" id="tab-sbq" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">자살생각 (SBQ)</button>
-                <button type="button" onclick="switchTestType('isi')" id="tab-isi" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">수면장애 (ISI)</button>
-            </div>
-
-            <!-- 출처 및 척도 설명 박스 추가 -->
-            <div id="test-source-box" class="p-3 bg-blue-50/70 rounded-xl border border-blue-100 text-[10px] text-blue-900 space-y-1">
-                <p class="font-bold flex items-center space-x-1"><span>📚</span> <span id="source-title-text">출처: 역학조사연구용 우울척도 (CES-D, Radloff, 1977)</span></p>
-                <p id="source-desc-text" class="text-blue-700 leading-relaxed">미국 국립정신건강연구소(NIMH)에서 개발한 공인된 우울증 선별 검사 도구로, 지난 일주일 동안 느낀 감정 상태를 평가합니다.</p>
-            </div>
-
-            <div id="test-questions" class="space-y-3 max-h-56 overflow-y-auto pr-1"></div>
-
-            <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5 text-xs">
-                <p class="font-bold text-slate-800">결과 저장을 위한 정보 입력</p>
-                <div class="grid grid-cols-2 gap-2">
-                    <input type="text" id="test-user-name" placeholder="성함" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
-                    <input type="tel" id="test-user-phone" placeholder="연락처 (숫자만)" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+            <div id="view-self-check" class="hidden space-y-4">
+                <div class="flex items-center justify-between pb-1">
+                    <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
+                        <span>← 이전 화면</span>
+                    </button>
+                    <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-medium">공인 표준 척도 검사</span>
                 </div>
-                <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 입력해주세요.</p>
+                <div class="space-y-0.5">
+                    <h3 class="text-sm font-bold text-slate-800">자가진단 검사</h3>
+                    <p class="text-[10px] text-slate-500">임상 및 정신건강 전문기관에서 공인된 표준 척도를 바탕으로 마음 상태를 체크합니다.</p>
+                </div>
+
+                <!-- 자가진단 탭 버튼 -->
+                <div class="grid grid-cols-3 gap-1 text-[10px] font-semibold">
+                    <button type="button" onclick="switchTestType('cesd')" id="tab-cesd" class="py-2 rounded-xl bg-blue-600 text-white shadow-sm transition-all cursor-pointer">우울 (CES-D)</button>
+                    <button type="button" onclick="switchTestType('gad')" id="tab-gad" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">불안 (GAD-7)</button>
+                    <button type="button" onclick="switchTestType('pss')" id="tab-pss" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">스트레스 (PSS)</button>
+                    <button type="button" onclick="switchTestType('cape')" id="tab-cape" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">조기정신증</button>
+                    <button type="button" onclick="switchTestType('sbq')" id="tab-sbq" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">자살생각 (SBQ)</button>
+                    <button type="button" onclick="switchTestType('isi')" id="tab-isi" class="py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer">수면장애 (ISI)</button>
+                </div>
+
+                <!-- 출처 및 척도 설명 박스 추가 -->
+                <div id="test-source-box" class="p-3 bg-blue-50/70 rounded-xl border border-blue-100 text-[10px] text-blue-900 space-y-1">
+                    <p class="font-bold flex items-center space-x-1"><span>📚</span> <span id="source-title-text">출처: 역학조사연구용 우울척도 (CES-D, Radloff, 1977)</span></p>
+                    <p id="source-desc-text" class="text-blue-700 leading-relaxed">미국 국립정신건강연구소(NIMH)에서 개발한 공인된 우울증 선별 검사 도구로, 지난 일주일 동안 느낀 감정 상태를 평가합니다.</p>
+                </div>
+
+                <div id="test-questions" class="space-y-3 max-h-56 overflow-y-auto pr-1"></div>
+
+                <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5 text-xs">
+                    <p class="font-bold text-slate-800">결과 저장을 위한 정보 입력</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="text" id="test-user-name" placeholder="성함" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                        <input type="tel" id="test-user-phone" placeholder="연락처 (숫자만)" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                    </div>
+                    <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 입력해주세요.</p>
+                </div>
+
+                <button type="button" onclick="calculateTestResult()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-full text-xs shadow-md hover:bg-blue-700 transition-all cursor-pointer">
+                    결과 확인 및 저장하기
+                </button>
             </div>
 
-            <button type="button" onclick="calculateTestResult()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-full text-xs shadow-md hover:bg-blue-700 transition-all cursor-pointer">
-                결과 확인 및 저장하기
-            </button>
-        </div>
-
-        <!-- VIEW: 자가진단 결과 -->
+            <!-- VIEW: 자가진단 결과 -->
             <div id="view-test-result" class="hidden space-y-4 text-center">
                 <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-lg font-bold shadow-inner">📋</div>
                 <div>
@@ -603,110 +603,111 @@
             </div>
 
             <!-- VIEW: 접수 및 결과 조회 화면 -->
-        <div id="view-lookup" class="hidden space-y-4 text-xs text-slate-600">
-            <div class="flex items-center justify-between pb-1">
-                <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
-                    <span>← 이전 화면</span>
-                </button>
-                <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-medium">CLOUD LOOKUP</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-1 text-[11px] font-semibold bg-slate-100 p-1 rounded-2xl">
-                <button type="button" onclick="switchLookupMethod('standard')" id="lookup-tab-standard" class="py-2 rounded-xl bg-white text-emerald-700 shadow-sm transition-all cursor-pointer">이름 + 연락처 조회</button>
-                <button type="button" onclick="switchLookupMethod('code')" id="lookup-tab-code" class="py-2 rounded-xl text-slate-600 hover:bg-white/50 transition-all cursor-pointer">고유번호 / PIN 조회</button>
-            </div>
-
-            <div id="lookup-box-standard" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
-                <h3 class="text-sm font-bold text-slate-800">🔍 실시간 클라우드 접수증 및 결과 조회</h3>
-                <p class="text-[10px] text-slate-500">어떤 기기에서 신청하셨든 성함과 연락처를 입력하시면 클라우드에서 즉시 불러옵니다.</p>
-                
-                <div class="space-y-2">
-                    <input type="text" id="lookup-name" placeholder="성함 (예: 홍길동)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
-                    <input type="tel" id="lookup-phone" placeholder="연락처 (숫자만 입력)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
-                    <input type="password" id="lookup-pin" maxlength="4" placeholder="조회용 PIN 4자리 (선택사항)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
-                    <p id="lookup-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 모두 입력해주세요.</p>
+            <div id="view-lookup" class="hidden space-y-4 text-xs text-slate-600">
+                <div class="flex items-center justify-between pb-1">
+                    <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
+                        <span>← 이전 화면</span>
+                    </button>
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-medium">CLOUD LOOKUP</span>
                 </div>
 
-                <button type="button" onclick="performLookup('standard')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
-                    클라우드 조회하기
-                </button>
-            </div>
-
-            <div id="lookup-box-code" class="hidden bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
-                <h3 class="text-sm font-bold text-slate-800">🔑 고유 접수번호 / PIN 단독 조회</h3>
-                <p class="text-[10px] text-slate-500">신청 완료 시 발급된 8자리 고유 접수번호나 PIN 번호로 바로 확인합니다.</p>
-                
-                <div class="space-y-2">
-                    <input type="text" id="lookup-input-code" placeholder="예: CH-8392 또는 4자리 PIN" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs font-mono">
-                    <p id="lookup-code-err" class="text-rose-500 text-[10px] hidden">올바른 접수번호나 PIN을 입력해주세요.</p>
+                <div class="grid grid-cols-2 gap-1 text-[11px] font-semibold bg-slate-100 p-1 rounded-2xl">
+                    <button type="button" onclick="switchLookupMethod('standard')" id="lookup-tab-standard" class="py-2 rounded-xl bg-white text-emerald-700 shadow-sm transition-all cursor-pointer">이름 + 연락처 조회</button>
+                    <button type="button" onclick="switchLookupMethod('code')" id="lookup-tab-code" class="py-2 rounded-xl text-slate-600 hover:bg-white/50 transition-all cursor-pointer">고유번호 / PIN 조회</button>
                 </div>
 
-                <button type="button" onclick="performLookup('code')" class="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
-                    고유번호로 조회하기
-                </button>
-            </div>
-
-            <div id="lookup-results-container" class="hidden space-y-2.5">
-                <h4 class="font-bold text-slate-800 text-xs">조회 결과 내역</h4>
-                <div id="lookup-results-list" class="space-y-2 max-h-60 overflow-y-auto pr-1"></div>
-            </div>
-
-            <button type="button" onclick="goToHome()" class="w-full py-3 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200 transition-all shadow-sm cursor-pointer">홈으로 돌아가기</button>
-        </div>
-
-        <!-- VIEW: 관리자 화면 (Admin) -->
-        <div id="view-admin" class="hidden space-y-4 text-xs text-slate-600">
-            <div class="flex items-center justify-between pb-1">
-                <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
-                    <span>← 이전 화면</span>
-                </button>
-                <span id="admin-status" class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">잠금 상태</span>
-            </div>
-
-            <div id="admin-login-box" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3 text-center">
-                <div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto text-base font-bold">🔒</div>
-                <h3 class="text-sm font-bold text-slate-800">관리자 클라우드 인증</h3>
-                <p class="text-[10px] text-slate-500">관리자 비밀번호를 입력해주세요.</p>
-                <input type="password" id="admin-pw" placeholder="비밀번호 입력" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
-                <p id="admin-pw-err" class="text-rose-500 text-[10px] hidden">비밀번호가 올바르지 않습니다.</p>
-                <button type="button" onclick="verifyAdmin()" class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
-                    로그인
-                </button>
-            </div>
-
-            <div id="admin-dashboard" class="hidden space-y-3">
-                <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
-                    <div>
-                        <h3 class="font-bold text-slate-800 text-xs">관리자 실시간 대시보드</h3>
-                        <p class="text-[10px] text-slate-500">모든 기기에서 접수된 클라우드 데이터 관리</p>
+                <div id="lookup-box-standard" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800">🔍 실시간 클라우드 접수증 및 결과 조회</h3>
+                    <p class="text-[10px] text-slate-500">어떤 기기에서 신청하셨든 성함과 연락처를 입력하시면 클라우드에서 즉시 불러옵니다.</p>
+                    
+                    <div class="space-y-2">
+                        <input type="text" id="lookup-name" placeholder="성함 (예: 홍길동)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
+                        <input type="tel" id="lookup-phone" placeholder="연락처 (숫자만 입력)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
+                        <input type="password" id="lookup-pin" maxlength="4" placeholder="조회용 PIN 4자리 (선택사항)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
+                        <p id="lookup-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 모두 입력해주세요.</p>
                     </div>
-                    <div class="flex items-center space-x-1.5">
-                        <button type="button" onclick="lockAdmin()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold cursor-pointer">잠금</button>
-                    </div>
+
+                    <button type="button" onclick="performLookup('standard')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                        클라우드 조회하기
+                    </button>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 text-center">
-                    <div class="bg-blue-50/70 p-3 rounded-2xl border border-blue-100">
-                        <p class="text-[10px] text-blue-600 font-bold">총 접수 건수</p>
-                        <p id="admin-count-reg" class="text-base font-black text-blue-800 mt-0.5">0건</p>
+                <div id="lookup-box-code" class="hidden bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800">🔑 고유 접수번호 / PIN 단독 조회</h3>
+                    <p class="text-[10px] text-slate-500">신청 완료 시 발급된 8자리 고유 접수번호나 PIN 번호로 바로 확인합니다.</p>
+                    
+                    <div class="space-y-2">
+                        <input type="text" id="lookup-input-code" placeholder="예: CH-8392 또는 4자리 PIN" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs font-mono">
+                        <p id="lookup-code-err" class="text-rose-500 text-[10px] hidden">올바른 접수번호나 PIN을 입력해주세요.</p>
                     </div>
-                    <div class="bg-pink-50/70 p-3 rounded-2xl border border-pink-100">
-                        <p class="text-[10px] text-pink-600 font-bold">총 검사 건수</p>
-                        <p id="admin-count-test" class="text-base font-black text-pink-800 mt-0.5">0건</p>
-                    </div>
+
+                    <button type="button" onclick="performLookup('code')" class="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                        고유번호로 조회하기
+                    </button>
                 </div>
 
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-800 text-xs">📋 실시간 클라우드 서비스 신청 내역</h4>
-                    <div id="admin-reg-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+                <div id="lookup-results-container" class="hidden space-y-2.5">
+                    <h4 class="font-bold text-slate-800 text-xs">조회 결과 내역</h4>
+                    <div id="lookup-results-list" class="space-y-2 max-h-60 overflow-y-auto pr-1"></div>
                 </div>
 
-                <div class="space-y-2 pt-2">
-                    <h4 class="font-bold text-slate-800 text-xs">💖 실시간 클라우드 심리검사 결과</h4>
-                    <div id="admin-test-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+                <button type="button" onclick="goToHome()" class="w-full py-3 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200 transition-all shadow-sm cursor-pointer">홈으로 돌아가기</button>
+            </div>
+
+            <!-- VIEW: 관리자 화면 (Admin) -->
+            <div id="view-admin" class="hidden space-y-4 text-xs text-slate-600">
+                <div class="flex items-center justify-between pb-1">
+                    <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
+                        <span>← 이전 화면</span>
+                    </button>
+                    <span id="admin-status" class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">잠금 상태</span>
+                </div>
+
+                <div id="admin-login-box" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3 text-center">
+                    <div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto text-base font-bold">🔒</div>
+                    <h3 class="text-sm font-bold text-slate-800">관리자 클라우드 인증</h3>
+                    <p class="text-[10px] text-slate-500">관리자 비밀번호를 입력해주세요.</p>
+                    <input type="password" id="admin-pw" placeholder="비밀번호 입력" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
+                    <p id="admin-pw-err" class="text-rose-500 text-[10px] hidden">비밀번호가 올바르지 않습니다.</p>
+                    <button type="button" onclick="verifyAdmin()" class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
+                        로그인
+                    </button>
+                </div>
+
+                <div id="admin-dashboard" class="hidden space-y-3">
+                    <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-xs">관리자 실시간 대시보드</h3>
+                            <p class="text-[10px] text-slate-500">모든 기기에서 접수된 클라우드 데이터 관리</p>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <button type="button" onclick="lockAdmin()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold cursor-pointer">잠금</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-center">
+                        <div class="bg-blue-50/70 p-3 rounded-2xl border border-blue-100">
+                            <p class="text-[10px] text-blue-600 font-bold">총 접수 건수</p>
+                            <p id="admin-count-reg" class="text-base font-black text-blue-800 mt-0.5">0건</p>
+                        </div>
+                        <div class="bg-pink-50/70 p-3 rounded-2xl border border-pink-100">
+                            <p class="text-[10px] text-pink-600 font-bold">총 검사 건수</p>
+                            <p id="admin-count-test" class="text-base font-black text-pink-800 mt-0.5">0건</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-800 text-xs">📋 실시간 클라우드 서비스 신청 내역</h4>
+                        <div id="admin-reg-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <h4 class="font-bold text-slate-800 text-xs">💖 실시간 클라우드 심리검사 결과</h4>
+                        <div id="admin-test-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <footer class="px-4 py-2 bg-white border-t border-slate-100 text-center text-[9px] text-slate-400 flex-shrink-0">
             청향심리상담센터 | 전북 전주시 덕진구 벚꽃3길 9-1 3층 | Tel. 063-288-1014
@@ -714,13 +715,12 @@
 
     </div>
 
-    <!-- Firebase SDK (Modular ESM) -->
+    <!-- Firebase SDK & App Logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // 환경 변수 초기화
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'cheonghyang-default-app';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
             apiKey: "AIzaSyDummyKeyForStaticHostingFallback",
@@ -732,28 +732,21 @@
         };
 
         let app, db, auth;
-        let isFirebaseInitialized = false;
-
         try {
             app = initializeApp(firebaseConfig);
             db = getFirestore(app);
             auth = getAuth(app);
-
             const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
             if (token) {
-                signInWithCustomToken(auth, token).then(() => { isFirebaseInitialized = true; }).catch(() => {
-                    signInAnonymously(auth).then(() => { isFirebaseInitialized = true; }).catch(() => {});
-                });
+                signInWithCustomToken(auth, token).catch(() => signInAnonymously(auth));
             } else {
-                signInAnonymously(auth).then(() => { isFirebaseInitialized = true; }).catch(() => {});
+                signInAnonymously(auth);
             }
         } catch(e) {
-            console.warn("Firebase initialization fallback to memory store:", e);
+            console.warn("Firebase fallback:", e);
         }
 
-        // 전역 클라우드 저장 및 조회 함수 연결
         window.cloudSaveApplication = async function(regData) {
-            // Formspree 백그라운드 전송
             try {
                 fetch('https://formspree.io/f/mlezzbdo', {
                     method: 'POST',
@@ -773,7 +766,6 @@
                 });
             } catch(err) {}
 
-            // Firestore 저장 (Rule 1 준수)
             if (db) {
                 try {
                     const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
@@ -802,8 +794,6 @@
         window.cloudFetchAllData = async function() {
             let apps = [];
             let recs = [];
-            
-            // 로컬 메모리/스토리지 기본값 병합
             try {
                 apps = JSON.parse(localStorage.getItem('cheonghyang_applications') || '[]');
                 recs = JSON.parse(localStorage.getItem('cheonghyang_records') || '[]');
@@ -835,7 +825,7 @@
         }
     </script>
 
-    <!-- JavaScript 로직 -->
+    <!-- Vanilla JS Logic -->
     <script>
         let currentRegStep = 0;
         const totalRegSteps = 5;
@@ -889,7 +879,6 @@
             }
         }
 
-        // --- 딱 10가지 엄선된 고품질 인기 심리검사 (각 10문항) ---
         const funTestsList = [
             {
                 id: 1,
@@ -898,7 +887,7 @@
                 questions: [
                     { q: "연인과 갈등이 생겼을 때 나의 첫 번째 반응은?", opts: ["즉시 대화를 통해 오해를 풀고 싶어 한다.", "감정이 진정될 때까지 혼자만의 시간을 가진다.", "상대방의 입장을 먼저 이해하려고 양보한다.", "내 주장을 논리적으로 설득하려 한다."] },
                     { q: "가장 선호하는 애정 표현 방식은?", opts: ["따뜻한 말 한마디와 다정한 문자 메시지", "손을 잡거나 안아주는 스킨십", "필요한 것을 챙겨주는 실질적 행동", "함께 맛있는 것을 먹고 여행 가는 시간"] },
-                    { q: "연인이 연락이 조금 뜸할 때 나의 심리 상태는?", opts: ["바바가 보다 하고 대수롭지 않게 넘긴다.", "혹시 나한테 마음이 식었나 걱정되기 시작한다.", "나도 똑같이 연락을 줄여서 보복한다.", "이유를 차분하게 물어보고 확인한다."] },
+                    { q: "연인이 연락이 조금 뜸할 때 나의 심리 상태는?", opts: ["바쁘겠거니 하고 대수롭지 않게 넘긴다.", "혹시 나한테 마음이 식었나 걱정되기 시작한다.", "나도 똑같이 연락을 줄여서 보복한다.", "이유를 차분하게 물어보고 확인한다."] },
                     { q: "연애할 때 가장 중요하게 생각하는 가치는?", opts: ["서로에 대한 절대적인 신뢰와 정직함", "가치관과 유머 코드가 잘 맞는 것", "어려울 때 든든하게 곁을 지켜주는 의리", "사소한 것까지 공유하는 깊은 교감"] },
                     { q: "연인에게 서운한 점이 생겼을 때 나는?", opts: ["참다가 한 번에 터뜨리는 편이다.", "그 즉시 부드럽게 내 마음을 표현한다.", "혼자 며칠 동안 삐져서 속을 끓인다.", "농담 반 진담 반으로 가볍게 건네본다."] },
                     { q: "나의 연애 속도와 스타일은 어떤가요?", opts: ["첫눈에 반해 빠르게 불타오르는 불꽃형", "천천히 친구로 지내며 스며드는 잔잔한 호수형", "철저하게 검증하고 신중하게 다가가는 돌다리형", "상대방이 먼저 다가오면 마음을 여는 수동형"] },
@@ -1085,7 +1074,7 @@
                     { q: "행복의 기준에 대한 나의 생각은?", opts: ["내 마음의 평온과 건강이 곧 최고의 행복이다.", "사랑하는 사람들과 함께 맛있는 걸 먹는 것", "통장에 넉넉한 잔고와 사회적 성공을 거두는 것", "아무 걱정 없이 평범하게 사는 것조차 어렵다."] }
                 ],
                 results: [
-                    { range: [10, 18], title: "행복 지수 만점 힐링 마스터", desc: "일상의 소소한 가치를 알고 자신을 듬뿍 사랑하며 최고의 행복을 누리고 계십니다! 이 따뜻한 에너지를 주변에도 널리 나눠주세요." },
+                    { range: [10, 18], title: "행복 지수 만점 힐링 마스터", desc: "일상의 소소한 가치를 알고 자신을 듬뿍 사랑하며 최고의 행복을 누리고 계시네요. 이 따뜻한 에너지를 주변에도 널리 나눠주세요." },
                     { range: [19, 27], title: "평온하지만 재충전이 필요한 보통형", desc: "무난하게 살아가고 있지만 일상에 잔잔한 지루함이나 피로가 스며들어 있습니다. 이번 주말에는 새로운 활력소를 찾아보세요." },
                     { range: [28, 40], title: "긴급 힐링 처방 및 마음 돌봄 필요형", desc: "행복을 느끼기엔 마음의 여유가 너무도 부족합니다. 청향심리상담센터에서 전문가와 함께 잃어버린 웃음과 마음의 평화를 찾아보세요." }
                 ]
@@ -1177,7 +1166,6 @@
             document.getElementById('fun-result-container').classList.remove('hidden');
 
             const totalScore = userFunAnswers.reduce((a,b)=>a+b, 0);
-            
             let matchedRes = activeTest.results[0];
             for (let r of activeTest.results) {
                 if (totalScore >= r.range[0] && totalScore <= r.range[1]) {
@@ -1224,124 +1212,64 @@
         const mentalTopics30 = [
             { 
                 t: "우울증 (주요우울장애)", 
-                d: "【임상적 정의】\n2주 이상 거의 매일 우울한 기분이나 흥미·즐거움의 현저한 저하가 지속되는 대표적인 기분 장애입니다.\n\n【핵심 증상】\n· 거의 매일 지속되는 우울감, 공허감 또는 슬픔\n· 거의 모든 일상 활동에서 흥미나 즐거움의 상실 (아도니아)\n· 식욕 부진 또는 체중의 급격한 변화 (체중 증가 혹은 감소)\n· 불면증 또는 과다수면 (수면 리듬의 심각한 파괴)\n· 정신운동성 초조 또는 지체 (행동이나 말의 둔화 혹은 안절부절못함)\n· 피로감 또는 거의 매일 활력 상실\n· 무가치감 또는 과도하고 부적절한 죄책감\n· 사고력이나 집중력 저하, 우유부단함\n· 반복적인 죽음에 대한 생각 또는 자살 사고\n\n【치유 및 개입】\n인지행동치료(CBT)를 통한 역기능적 인지 재구성, 규칙적인 신체활동, 전문의의 약물 치료 병행 및 토탈 케어 서비스 연계." 
+                d: "【임상적 정의】\n2주 이상 거의 매일 우울한 기분이나 흥미·즐거움의 현저한 저하가 지속되는 대표적인 기분 장애입니다.\n\n【핵심 증상】\n· 거의 매일 지속되는 우울감, 공허감 또는 슬픔\n· 거의 모든 일상 활동에서 흥미나 즐거움의 상실\n· 식욕 부진 또는 체중의 급격한 변화\n· 불면증 또는 과다수면\n· 정신운동성 초조 또는 지체\n· 피로감 및 활력 상실\n· 무가치감 또는 과도한 죄책감\n· 집중력 저하 및 우유부단함\n· 반복적인 죽음에 대한 생각\n\n【치유 및 개입】\n인지행동치료(CBT), 규칙적인 신체활동, 전문의 약물 치료 병행." 
             },
             { 
                 t: "범불안장애", 
-                d: "【임상적 정의】\n다양한 일상생활 사건과 활동에 대해 6개월 이상 과도하고 통제하기 힘든 걱정과 불안이 지속되는 상태입니다.\n\n【핵심 증상】\n· 과도하고 통제 불가능한 만성적 걱정\n· 안절부절못함, 벼랑 끝에 선 듯한 긴장감\n· 쉽게 피로를 느낌\n· 집중 곤란 및 머릿속이 하얗게 되는 현상\n· 과민성 (신경이 예민해지고 쉽게 짜증이 남)\n· 근육 긴장도 증가 (어깨 뭉침, 두통)\n· 수면 장애 (입면 곤란 및 수면 유지 곤란)\n\n【치유 및 개입】\n이완 훈련, 마음챙김 명상, 걱정 시간 지정 기법 및 인지행동 치료." 
+                d: "【임상적 정의】\n다양한 일상생활 사건에 대해 6개월 이상 과도하고 통제하기 힘든 걱정과 불안이 지속되는 상태입니다.\n\n【핵심 증상】\n· 과도하고 통제 불가능한 만성적 걱정\n· 안절부절못함 및 긴장감\n· 쉽게 피로를 느낌\n· 집중 곤란 및 머릿속이 하얗게 됨\n· 과민성 및 신경 예민함\n· 근육 긴장도 증가 및 두통\n· 수면 장애\n\n【치유 및 개입】\n이완 훈련, 마음챙김 명상, 인지행동 치료." 
             },
             { 
                 t: "공황장애", 
-                d: "【임상적 정의】\n갑작스럽게 극심한 공포와 고통이 최고조에 달하며 신체적 증상이 동반되는 불안장애입니다.\n\n【핵심 증상】\n· 심장 두근거림, 심박수 증가\n· 식은땀, 몸의 떨림이나 전율\n· 숨 가쁨, 질식할 것 같은 느낌\n· 흉부 통증 또는 가슴 답답함\n· 메스꺼움이나 복부 불편감\n· 어지러움, 현기증, 기절할 것 같은 느낌\n· 비현실감 (자신이 분리된 느낌) 또는 이인증\n· 통제력을 잃거나 미칠 것 같은 공포\n· 죽을 것 같은 공포 (심장마비나 뇌졸중 오인)\n\n【치유 및 개입】\n복식호흡 조절 훈련, 인지 재구성, 광장공포증에 대한 점진적 노출 치료." 
+                d: "【임상적 정의】\n갑작스럽게 극심한 공포와 고통이 최고조에 달하며 신체적 증상이 동반되는 불안장애입니다.\n\n【핵심 증상】\n· 심장 두근거림 및 심박수 증가\n· 식은땀 및 몸의 떨림\n· 숨 가쁨 및 질식할 것 같은 느낌\n· 흉부 통증 또는 가슴 답답함\n· 어지러움 및 현기증\n· 비현실감 또는 이인증\n· 죽을 것 같은 공포\n\n【치유 및 개입】\n복식호흡 조절 훈련, 인지 재구성, 노출 치료." 
             },
             { 
                 t: "조현병 (정신분열병)", 
-                d: "【임상적 정의】\n환각, 망상, 와해된 사고 및 행동, 음성 증상 등으로 인해 현실 검증력이 저하되고 일상 기능에 심각한 지장을 주는 정신건강 질환입니다.\n\n【핵심 증상】\n· 환각 (실제 자극이 없는데 소리가 들리거나 환시가 보임)\n· 망상 (피해망상, 관계망상, 과대망상 등 잘못된 확신)\n· 와해된 언어 (횡설수설, 지리멸렬한 대화)\n· 기괴하거나 긴장증적인 행동\n· 음성 증상 (감정 표현의 결여, 무의욕증, 언어 빈곤)\n\n【치유 및 개입】\n약물 순응도 유지 및 관리, 정신사회적 재활 프로그램, 일상생활 지원 및 가족 교육." 
+                d: "【임상적 정의】\n환각, 망상, 와해된 사고 및 행동, 음성 증상 등으로 인해 현실 검증력이 저하되는 정신건강 질환입니다.\n\n【핵심 증상】\n· 환각 (환청, 환시)\n· 망상 (피해망상, 관계망상)\n· 와해된 언어 및 횡설수설\n· 기괴한 행동\n· 음성 증상 (무감정, 무의욕)\n\n【치유 및 개입】\n약물 순응도 관리, 정신사회적 재활 프로그램." 
             },
             { 
                 t: "불면증 및 수면장애", 
-                d: "【임상적 정의】\n잠들기 어렵거나, 자주 깨거나, 너무 일찍 깨어나 주간 기능에 심각한 고통과 지장을 유발하는 상태입니다.\n\n【핵심 증상】\n· 잠자리에 누운 후 30분 이상 잠들지 못함 (입면 곤란)\n· 자는 동안 자주 깨며 다시 잠들기 어려움 (수면 유지 곤란)\n· 새벽에 너무 일찍 깨어 수면 부족을 느낌 (조조 각성)\n· 낮 동안의 극심한 피로감, 졸음, 무기력\n· 주의력, 집중력 또는 기억력 저하\n· 수면 부족으로 인한 정서적 예민함 및 불안\n\n【치유 및 개입】\n수면 위생 교육, 자극 조절 요법, 인지행동치료(CBT-I) 및 이완 기법." 
+                d: "【임상적 정의】\n잠들기 어렵거나 자주 깨며 주간 기능에 지장을 유발하는 상태입니다.\n\n【핵심 증상】\n· 입면 곤란 (30분 이상 잠들지 못함)\n· 수면 유지 곤란 (자주 깸)\n· 조조 각성 (새벽에 너무 일찍 깸)\n· 주간 졸음 및 극심한 피로\n· 집중력 및 기억력 저하\n\n【치유 및 개입】\n수면 위생 교육, 인지행동치료(CBT-I)." 
             },
             { 
                 t: "사회불안장애 (대인공포증)", 
-                d: "【임상적 정의】\n타인에게 관찰되거나 부정적 평가를 받을 수 있는 사회적 상황에서 현저한 공포나 불안을 느끼는 상태입니다.\n\n【핵심 증상】\n· 대중 앞에서 말하기, 발표, 낯선 사람과의 만남에서 극심한 불안\n· 타인에게 수치심을 당하거나 바보처럼 보일까 봐 지나치게 걱정\n· 불안을 유발하는 사회적 상황을 적극적으로 회피\n· 당황스러운 신체 반응 (얼굴 붉어짐, 손 떨림, 목소리 떨림)에 대한 과도한 집착\n\n【치유 및 개입】\n사회성 훈련(SST), 노출 요법 및 인지적 왜곡 교정." 
+                d: "【임상적 정의】\n타인에게 부정적 평가를 받을 수 있는 사회적 상황에서 현저한 공포나 불안을 느끼는 상태입니다.\n\n【핵심 증상】\n· 대중 앞 발표나 낯선 사람 만남에서 극심한 불안\n· 바보처럼 보일까 봐 지나치게 걱정\n· 사회적 상황 회피\n· 당황스러운 신체 반응(얼굴 붉어짐 등)에 대한 과도한 집착\n\n【치유 및 개입】\n사회성 훈련(SST), 노출 요법." 
             },
             { 
                 t: "외상후 스트레스장애 (PTSD)", 
-                d: "【임상적 정의】\n죽음이나 심각한 부상 등 충격적인 외상 사건을 직접 목격하거나 경험한 후 발생하는 심리적 장애입니다.\n\n【핵심 증상】\n· 외상 사건의 침투적 회상, 악몽, 플래시백\n· 관련 자극이나 장소에 대한 극심한 회피\n· 사건의 중요한 부분을 기억하지 못함 (해리성 건망증)\n· 부정적 감정 및 세상에 대한 불신\n· 과각성 (경계심 증가, 깜짝 놀람, 수면 장애)\n\n【치유 및 개입】\n안구운동 민감소실 및 재처리요법(EMDR), 인지처리치료(CPT)." 
+                d: "【임상적 정의】\n충격적인 외상 사건을 직접 경험하거나 목격한 후 발생하는 심리적 장애입니다.\n\n【핵심 증상】\n· 침투적 회상, 악몽, 플래시백\n· 관련 자극에 대한 극심한 회피\n· 부정적 감정 및 세상에 대한 불신\n· 과각성 및 깜짝 놀람\n\n【치유 및 개입】\nEMDR(안구운동 민감소실 및 재처리), 인지처리치료." 
             },
             { 
                 t: "양극성장애 (조울증)", 
-                d: "【임상적 정의】\n비정상적으로 들뜨는 조증 시기와 극심한 우울감이 주기적으로 교대로 나타나는 기분 장애입니다.\n\n【핵심 증상】\n· 고양되거나 과민한 기분, 비정상적으로 넘치는 에너지 (조증)\n· 수면 욕구의 현저한 감소 (2~3시간만 자도 거뜬함)\n· 과대사고 또는 자존감의 극단적 팽창\n· 말이 아주 많아지고 속도가 빨라짐\n· 생각의 비약 (아이디어가 끊이지 않음)\n· 무모하고 충동적인 행동 (과도한 지출, 무리한 투자)\n\n【치유 및 개입】\n기분 안정제 투약 관리, 규칙적인 생활 리듬 유지 및 심리 상담." 
+                d: "【임상적 정의】\n조증 시기와 우울감이 주기적으로 교대로 나타나는 기분 장애입니다.\n\n【핵심 증상】\n· 조증: 비정상적 고양, 수면 욕구 감소, 과대사고\n· 빠른 말과 비약하는 생각\n· 충동적이고 무모한 행동\n· 우울증: 극심한 무기력과 절망감\n\n【치유 및 개입】\n기분 안정제 복용, 규칙적인 생활 리듬." 
             },
             { 
                 t: "강박장애", 
-                d: "【임상적 정의】\n불안을 유발하는 침투적 생각(강박사고)과 그 불안을 해소하기 위한 반복적 행동(강박행동)이 특징인 질환입니다.\n\n【핵심 증상】\n· 오염, 파괴, 부도덕성에 대한 반복적이고 원치 않는 생각 (강박사고)\n· 손 씻기, 확인하기, 정돈하기, 숫자 세기 등의 반복 행동 (강박행동)\n· 강박행동을 수행하지 않으면 극심한 공포와 불안 발생\n· 일상생활과 학업·업무에 상당한 시간을 소모함\n\n【치유 및 개입】\n노출 및 반응 방지법(ERP) 및 인지행동 치료." 
+                d: "【임상적 정의】\n침투적 생각(강박사고)과 반복적 행동(강박행동)이 특징인 질환입니다.\n\n【핵심 증상】\n· 반복적이고 원치 않는 오염·파괴 생각\n· 손 씻기, 확인하기, 정돈하기의 반복\n· 강박행동 미수행 시 극심한 불안\n\n【치유 및 개입】\n노출 및 반응 방지법(ERP)." 
             },
             { 
                 t: "번아웃 증후군", 
-                d: "【임상적 정의】\n지속적인 업무 및 스트레스로 인해 신체적·정신적 에너지가 완전히 고갈되어 무기력에 빠지는 상태입니다.\n\n【핵심 증상】\n· 극심한 신체적·정신적 피로감 및 무기력증\n· 일과 주변 사람들에 대한 냉소주의 및 감정적 메마름\n· 업무 성취감 저하 및 자아효능감 상실\n· 사소한 일에도 쉽게 분노하고 짜증이 남\n· 두통, 소화불량 등 신체화 증상 동반\n\n【치유 및 개입】\n완벽주의 성향 조절, 경계 설정(Boundary Setting), 휴식 루틴 확립." 
+                d: "【임상적 정의】\n지속적인 스트레스로 인해 신체·정신적 에너지가 고갈되어 무기력해지는 상태입니다.\n\n【핵심 증상】\n· 극심한 피로감 및 무기력\n· 냉소주의 및 감정적 메마름\n· 업무 성취감 상실\n· 사소한 일에 분노\n\n【치유 및 개입】\n경계 설정, 휴식 루틴 확립." 
             },
-            { 
-                t: "적응장애", 
-                d: "【임상적 정의】\n확인 가능한 스트레스원 발생 후 3개월 이내에 부적응적인 정서적·행동적 반응을 보이는 상태입니다.\n\n【핵심 증상】\n· 스트레스원에 비해 과도한 수준의 고통과 불안\n· 사회적, 직업적 기능의 현저한 저하\n· 우울감, 절망감 및 눈물 많아짐\n· 일탈 행동이나 무단 결석, 업무 태만 등 품행 문제\n\n【치유 및 개입】\n지지적 심리상담, 문제 해결 중심 전략 교육." 
-            },
-            { 
-                t: "ADHD", 
-                d: "【임상적 정의】\n주의력 결핍, 과잉행동, 충동성이 아동기를 넘어 성인기까지 지속되어 일상에 지장을 주는 신경발달 장애입니다.\n\n【핵심 증상】\n· 세부 사항에 부주의하고 실수가 잦음\n· 지시를 끝까지 수행하지 못하고 주의가 쉽게 산만해짐\n· 가만히 있지 못하고 손발을 꼼지락거리거나 안절부절못함\n· 차례를 기다리지 못하고 불쑥 끼어들거나 말을 가로챔\n\n【치유 및 개입】\n인지행동적 시간 관리, 환경 구조화 및 전문의 약물 치료." 
-            },
-            { 
-                t: "섭식장애", 
-                d: "【임상적 정의】\n체형과 체중에 대한 왜곡된 집착으로 인해 식이 행동에 심각한 이상을 겪는 질환입니다.\n\n【핵심 증상】\n· 극단적인 음식 거부와 체중 감소 (신경성 식욕부진증)\n· 폭식 후 구토나 하제 오남용 (신경성 식욕항진증)\n· 체형에 대한 비현실적이고 병적인 집착\n· 타인 앞에서 음식을 먹는 것에 대한 극심한 공포\n\n【치유 및 개입】\n영양 균형 회복, 왜곡된 인지 교정 및 심리 상담." 
-            },
-            { 
-                t: "신체증상장애", 
-                d: "【임상적 정의】\n고통스러운 신체적 증상과 그로 인한 과도한 불안·생각이 지속되나 의학적으로 원인이 불명확한 상태입니다.\n\n【핵심 증상】\n· 신체 통증, 피로, 소화 불량 등 다양한 감각에 집착\n· 증상의 심각성에 대해 과도하고 지속적인 불안\n· 건강과 질병에 대한 과도한 집착과 반복적 병원 방문\n\n【치유 및 개입】\n신체 감각에 대한 인지 왜곡 수정, 감정 표현 촉진." 
-            },
-            { 
-                t: "계절성 정서장애", 
-                d: "【임상적 정의】\n특정 계절(주로 가을과 겨울)에 일조량이 줄어들면서 반복적으로 우울증이 발생하는 기분 장애입니다.\n\n【핵심 증상】\n· 가을·겨울철 시작되는 반복적 우울감 및 무기력\n· 과도한 졸음과 수면 시간 증가\n· 탄수화물 갈망 및 체중 증가\n· 에너지 저하 및 사회적 활동 위축\n\n【치유 및 개입】\n고광도 광치료(Light Therapy), 햇빛 산책 및 규칙적 운동." 
-            },
-            { 
-                t: "분리불안장애", 
-                d: "【임상적 정의】\n애착을 느끼는 주요 대상과 떨어지는 것에 대해 발달 수준에 맞지 않게 과도한 불안을 느끼는 상태입니다.\n\n【치유 및 개입】\n점진적 분리 훈련 및 인지 행동적 지지." 
-            },
-            { 
-                t: "충동조절장애", 
-                d: "【임상적 정의】\n사소한 자극이나 좌절에도 분노와 충동을 억제하지 못하고 파괴적 행동을 분출하는 상태입니다.\n\n【치유 및 개입】\n분노 관리 프로그램(Anger Management) 및 충동 조절 훈련." 
-            },
-            { 
-                t: "해리성 장애", 
-                d: "【임상적 정의】\n의식, 기억, 정체감의 통합적 기능에 장애가 생겨 현실로부터 분리되는 느낌을 받는 상태입니다.\n\n【치유 및 개입】\n트라우마 안정화 및 해리 대처 기법." 
-            },
-            { 
-                t: "건강염려증", 
-                d: "【임상적 정의】\n가벼운 신체 증상을 심각한 불치병에 걸린 증거로 오인하여 집착하고 불안해하는 상태입니다.\n\n【치유 및 개입】\n신체 감각 수용 훈련 및 인지 왜곡 교정." 
-            },
-            { 
-                t: "애착 불안", 
-                d: "【임상적 정의】\n타인에게 버림받을지 모른다는 두려움으로 인해 관계에서 과도하게 집착하거나 불안해하는 성향입니다.\n\n【치유 및 개입】\n안전한 상담 관계 속에서 내면의 상처 치유." 
-            },
-            { 
-                t: "자존감 저하", 
-                d: "【임상적 정의】\n스스로를 무가치하고 부족한 존재로 여겨 타인과 비교하며 끊임없이 위축되는 상태입니다.\n\n【치유 및 개입】\n자기 자비(Self-Compassion) 훈련 및 강점 발견." 
-            },
-            { 
-                t: "사회적 고립", 
-                d: "【임상적 정의】\n타인과의 상호작용 및 사회적 관계망을 완전히 차단한 채 외부와 단절되어 지내는 상태입니다.\n\n【치유 및 개입】\n방문 상담 및 사회서비스 토탈 케어 연계." 
-            },
-            { 
-                t: "노인 우울증", 
-                d: "【임상적 정의】\n노년기에 겪는 신체적 쇠약, 사별, 경제적 상실감 등으로 인해 심화되는 우울 상태입니다.\n\n【치유 및 개입】\n정서적 지지 및 노인 맞춤형 심리상담." 
-            },
-            { 
-                t: "청소년 정서 위기", 
-                d: "【임상적 정의】\n학업 스트레스, 진로 고민, 교우 관계 갈등으로 인해 청소년기 겪는 심리적 고통입니다.\n\n【치유 및 개입】\n눈높이 전문 심리상담 및 정서 멘토링." 
-            },
-            { 
-                t: "직무 스트레스", 
-                d: "【임상적 정의】\n직장 내 과도한 업무량, 대인 갈등, 성과 압박으로 인해 겪는 만성적인 긴장 상태입니다.\n\n【치유 및 개입】\n직무 경계 설정 및 스트레스 이완 요법." 
-            },
-            { 
-                t: "가족 갈등", 
-                d: "【임상적 정의】\n부부, 부모-자식 간 소통 부재와 가치관 차이로 인해 가정 내 지속되는 심리적 상처입니다.\n\n【치유 및 개입】\n비폭력 대화법(NVC) 및 가족 소통 코칭." 
-            },
-            { 
-                t: "애도 반응", 
-                d: "【임상적 정의】\n사랑하는 사람과의 사별이나 소중한 대상과의 이별 후 겪는 정상적이면서도 깊은 상실의 슬픔입니다.\n\n【치유 및 개입】\n슬픔의 수용과 건강한 애도 과정 지원." 
-            },
-            { 
-                t: "분노조절 기술", 
-                d: "【임상적 정의】\n치솟는 분노 감정을 파괴적으로 표출하지 않고 건설적이고 유연하게 조절하는 소통 기술입니다.\n\n【치유 및 개입】\n감정 인식 및 인지 재구성 훈련." 
-            },
-            { 
-                t: "마음챙김", 
-                d: "【임상적 정의】\n현재 순간에 주의를 기울이되 판단을 내리지 않고 있는 그대로 수용하는 심리적 태도입니다.\n\n【치유 및 개입】\n호흡 명상 및 바디 스캔 훈련." 
-            },
-            { 
-                t: "정신건강 자가돌봄", 
-                d: "【임상적 정의】\n스스로의 마음 컨디션을 정기적으로 점검하고 일상 속에서 치유 루틴을 실천하는 예방 활동입니다.\n\n【치유 및 개입】\n맞춤형 멘탈 케어 플랜 수립." 
-            }
+            { t: "적응장애", d: "【임상적 정의】 스트레스원 발생 후 3개월 이내 부적응적 정서 반응.\n【핵심 증상】 과도한 고통, 우울감, 눈물, 기능 저하.\n【치유 및 개입】 지지적 심리상담." },
+            { t: "ADHD", d: "【임상적 정의】 주의력 결핍, 과잉행동, 충동성 지속.\n【핵심 증상】 부주의한 실수, 산만함, 충동적 끼어들기.\n【치유 및 개입】 인지행동 치료 및 약물 병행." },
+            { t: "섭식장애", d: "【임상적 정의】 체형에 대한 왜곡된 집착으로 식이 행동 이상.\n【핵심 증상】 극단적 거식 또는 폭식 후 구토.\n【치유 및 개입】 영양 회복 및 인지 교정." },
+            { t: "신체증상장애", d: "【임상적 정의】 원인 불명의 신체 통증과 과도한 불안.\n【핵심 증상】 신체 감각 집착, 반복적 병원 방문.\n【치유 및 개입】 신체 감각 인지 수정." },
+            { t: "계절성 정서장애", d: "【임상적 정의】 가을·겨울철 반복되는 계절성 우울증.\n【핵심 증상】 과다수면, 탄수화물 갈망, 에너지 저하.\n【치유 및 개입】 광치료 및 햇빛 산책." },
+            { t: "분리불안장애", d: "【임상적 정의】 애착 대상과의 이리에 대한 과도한 불안.\n【핵심 증상】 떨어지기 두려워함, 신체화 증상.\n【치유 및 개입】 점진적 분리 훈련." },
+            { t: "충동조절장애", d: "【임상적 정의】 분노와 충동을 억제하지 못하는 상태.\n【핵심 증상】 사소한 자극에도 파괴적 분노 표출.\n【치유 및 개입】 분노 관리 프로그램." },
+            { t: "해리성 장애", d: "【임상적 정의】 의식과 기억의 통합적 기능 장애.\n【핵심 증상】 현실감 상실, 기억 상실.\n【치유 및 개입】 트라우마 안정화." },
+            { t: "건강염려증", d: "【임상적 정의】 가벼운 신체 증상을 불치병으로 오인.\n【핵심 증상】 질병에 대한 과도한 집착.\n【치유 및 개입】 인지 왜곡 교정." },
+            { t: "애착 불안", d: "【임상적 정의】 버림받을 두려움으로 인한 과도한 집착.\n【핵심 증상】 관계에서의 만성적 불안.\n【치유 및 개입】 상담을 통한 상처 치유." },
+            { t: "자존감 저하", d: "【임상적 정의】 자신을 무가치하게 여겨 위축되는 상태.\n【핵심 증상】 자기 비하, 타인과의 비교.\n【치유 및 개입】 자기 자비 훈련." },
+            { t: "사회적 고립", d: "【임상적 정의】 타인과의 관계를 완전히 차단한 상태.\n【핵심 증상】 은둔, 대인 기피.\n【치유 및 개입】 방문 상담 및 토탈 케어." },
+            { t: "노인 우울증", d: "【임상적 정의】 노년기 상실감으로 심화되는 우울.\n【핵심 증상】 신체 쇠약, 고독감, 무기력.\n【치유 및 개입】 노인 맞춤 심리상담." },
+            { t: "청소년 정서 위기", d: "【임상적 정의】 학업 및 진로 갈등으로 겪는 심리적 고통.\n【핵심 증상】 반항, 우울, 학업 중단 위기.\n【치유 및 개입】 눈높이 전문 상담." },
+            { t: "직무 스트레스", d: "【임상적 정의】 업무량 및 대인 갈등으로 인한 긴장.\n【핵심 증상】 만성 피로, 직장 회피.\n【치유 및 개입】 스트레스 이완 요법." },
+            { t: "가족 갈등", d: "【임상적 정의】 가정 내 소통 부재와 가치관 차이.\n【핵심 증상】 가정 내 불화 및 대화 단절.\n【치유 및 개입】 비폭력 대화 코칭." },
+            { t: "애도 반응", d: "【임상적 정의】 사별이나 이별 후 겪는 상실의 슬픔.\n【핵심 증상】 깊은 슬픔, 그리움, 공허감.\n【치유 및 개입】 슬픔의 수용과 애도 지원." },
+            { t: "분노조절 기술", d: "【임상적 정의】 분노를 건설적으로 조절하는 소통 기술.\n【핵심 증상】 감정 인식 부족.\n【치유 및 개입】 인지 재구성 훈련." },
+            { t: "마음챙김", d: "【임상적 정의】 현재 순간에 집중하고 수용하는 태도.\n【핵심 증상】 만성적 잡념과 불안.\n【치유 및 개입】 호흡 명상 훈련." },
+            { t: "정신건강 자가돌봄", d: "【임상적 정의】 스스로 마음 컨디션을 점검하는 예방 활동.\n【핵심 증상】 돌봄 부족.\n【치유 및 개입】 맞춤형 멘탈 케어." }
         ];
 
         function renderMentalTopics() {
@@ -1490,7 +1418,6 @@
             const data = testsData[currentTestType];
             document.getElementById('source-title-text').innerText = data.source;
             document.getElementById('source-desc-text').innerText = data.desc;
-
             renderTestQuestions();
         }
 
@@ -1612,7 +1539,7 @@
                 y.className = "p-2 rounded-xl border border-blue-600 bg-blue-50 font-bold text-blue-700 text-center transition-all text-xs cursor-pointer";
                 n.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
             } else {
-                n.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
+                n.className = "p-2 rounded-xl border border-blue-600 bg-blue-50 font-bold text-blue-700 text-center transition-all text-xs cursor-pointer";
                 y.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
             }
         }
