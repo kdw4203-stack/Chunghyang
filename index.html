@@ -313,7 +313,7 @@
                 <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5 text-xs">
                     <p class="font-bold text-slate-800">검사자 정보 및 검사 유형</p>
                     <label class="block text-[10px] font-semibold text-slate-600" for="test-user-type">검사 유형</label>
-                    <select id="test-user-type" onchange="toggleTestApplicationCode('test')" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
+                    <select id="test-user-type"  class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
                         <option value="visitor">일반 방문자 직접 검사</option>
                         <option value="applicant">서비스 신청자 검사</option>
                     </select>
@@ -321,9 +321,8 @@
                         <input type="text" id="test-user-name" placeholder="검사자 성함" autocomplete="name" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
                         <input type="tel" id="test-user-phone" placeholder="연락처 (숫자만)" autocomplete="tel" class="px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
                     </div>
-                    <input type="text" id="test-application-code" placeholder="서비스 신청 접수번호 (예: CH-1234)" class="hidden w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-blue-600 outline-none">
-                    <p class="text-[10px] text-slate-500">서비스 신청자는 접수번호를 입력하면 검사 기록에 함께 저장됩니다.</p>
-                    <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 연락처를 입력하고, 서비스 신청자는 접수번호도 입력해주세요.</p>
+<p class="text-[10px] text-slate-500">서비스 신청자는 신청할 때 입력한 이름과 전화번호로 신청 내역과 연결됩니다.</p>
+                    <p id="test-user-err" class="text-rose-500 text-[10px] hidden">이름과 전화번호를 입력해주세요.</p>
                 </div>
 
                 <button type="button" onclick="calculateTestResult()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-full text-xs shadow-md hover:bg-blue-700 transition-all cursor-pointer">
@@ -380,7 +379,7 @@
                 <!-- 재미있는 심리검사도 검사자 정보를 받아 일반 방문자와 서비스 신청자를 구분 -->
                 <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm space-y-2.5">
                     <p class="font-bold text-slate-800">검사자 정보 및 검사 유형</p>
-                    <select id="fun-user-type" onchange="toggleTestApplicationCode('fun')" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-none text-xs">
+                    <select id="fun-user-type"  class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-none text-xs">
                         <option value="visitor">일반 방문자 직접 검사</option>
                         <option value="applicant">서비스 신청자 검사</option>
                     </select>
@@ -388,9 +387,8 @@
                         <input type="text" id="fun-user-name" placeholder="검사자 성함" autocomplete="name" class="min-w-0 px-3 py-2 rounded-xl border border-slate-200 outline-none">
                         <input type="tel" id="fun-user-phone" placeholder="연락처 (숫자만)" autocomplete="tel" class="min-w-0 px-3 py-2 rounded-xl border border-slate-200 outline-none">
                     </div>
-                    <input type="text" id="fun-application-code" placeholder="서비스 신청 접수번호 (예: CH-1234)" class="hidden w-full px-3 py-2 rounded-xl border border-slate-200 outline-none">
-                    <p class="text-[10px] text-slate-500">서비스 신청자는 접수번호를 입력해 신청 기록과 연결할 수 있습니다.</p>
-                    <p id="fun-user-err" class="hidden text-rose-500 text-[10px]">이름과 연락처를 입력하고, 서비스 신청자는 접수번호도 입력해주세요.</p>
+<p class="text-[10px] text-slate-500">서비스 신청자는 신청할 때 입력한 이름과 전화번호로 신청 내역과 연결됩니다.</p>
+                    <p id="fun-user-err" class="hidden text-rose-500 text-[10px]">이름과 전화번호를 입력해주세요.</p>
                 </div>
 
                 <!-- 검사 목록 선택 화면 -->
@@ -689,9 +687,10 @@
                 <div id="admin-login-box" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3 text-center">
                     <div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto text-base font-bold">🔒</div>
                     <h3 class="text-sm font-bold text-slate-800">관리자 클라우드 인증</h3>
-                    <p class="text-[10px] text-slate-500">관리자 비밀번호를 입력해주세요.</p>
-                    <input type="password" id="admin-pw" placeholder="비밀번호 입력" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
-                    <p id="admin-pw-err" class="text-rose-500 text-[10px] hidden">비밀번호가 올바르지 않습니다.</p>
+                    <p class="text-[10px] text-slate-500">Firebase 관리자 계정 이메일과 비밀번호를 입력해주세요.</p>
+                    <input type="email" id="admin-email" value="kdw4203@naver.com" placeholder="관리자 이메일" autocomplete="username" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
+                    <input type="password" id="admin-pw" placeholder="Firebase 관리자 비밀번호" autocomplete="current-password" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
+                    <p id="admin-pw-err" class="text-rose-500 text-[10px] hidden">로그인에 실패했습니다. Firebase 설정과 관리자 계정을 확인해주세요.</p>
                     <button type="button" onclick="verifyAdmin()" class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
                         로그인
                     </button>
@@ -701,7 +700,7 @@
                     <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
                         <div>
                             <h3 class="font-bold text-slate-800 text-xs">관리자 실시간 대시보드</h3>
-                            <p class="text-[10px] text-slate-500">Firebase 실제 프로젝트 설정 시 여러 기기에서 공유됩니다. 미설정 시 현재 브라우저에만 저장됩니다.</p>
+                            <p class="text-[10px] text-slate-500">Firebase 설정과 관리자 계정·보안 규칙이 올바르게 설정되면 여러 기기에서 공유됩니다.</p>
                         </div>
                         <div class="flex items-center space-x-1.5">
                             <button type="button" onclick="lockAdmin()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold cursor-pointer">잠금</button>
@@ -726,7 +725,7 @@
 
                     <div class="space-y-2 pt-2">
                         <h4 class="font-bold text-slate-800 text-xs">💖 심리검사 결과 및 검사자 구분</h4>
-                        <p class="text-[10px] text-slate-500">검사 완료 알림 이메일에는 검사 점수/소견을 포함하지 않습니다. 상세 결과는 관리자 화면에서 확인하세요.</p>
+                        <p class="text-[10px] text-slate-500">이름과 전화번호로 신청 내역을 자동 연결합니다. 일치 항목이 없으면 확인이 필요합니다. 이메일에는 검사 점수/소견을 포함하지 않습니다.</p>
                         <div id="admin-test-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
                     </div>
                 </div>
@@ -742,23 +741,29 @@
     <!-- Firebase SDK & App Logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'cheonghyang-default-app';
+        // GitHub Pages에서는 __firebase_config이 자동으로 주입되지 않습니다.
+        // Firebase Console > 프로젝트 설정 > 내 앱의 실제 웹 앱 설정값으로 아래 기본값을 교체해야
+        // 다른 사람의 신청/검사 결과가 모든 기기의 관리자 화면에 모입니다.
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyDummyKeyForStaticHostingFallback",
-            authDomain: "dummy.firebaseapp.com",
-            projectId: "dummy-project",
-            storageBucket: "dummy.appspot.com",
-            messagingSenderId: "000000000000",
-            appId: "1:000:web:000"
+            apiKey: "여기에_Firebase_API_KEY",
+            authDomain: "여기에_프로젝트ID.firebaseapp.com",
+            projectId: "여기에_실제_프로젝트ID",
+            storageBucket: "여기에_스토리지버킷",
+            messagingSenderId: "여기에_발신자ID",
+            appId: "여기에_앱ID"
         };
 
         // Formspree 계정에서 실제 수신 이메일과 폼 활성 상태를 확인하세요.
+        // Formspree에서 이 폼 ID가 실제 활성화되어 있고 센터 이메일로 수신되는지 테스트하세요.
         const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlezzbdo';
         let app, db, auth;
+        const firebaseConfigured = !!(firebaseConfig.projectId && !String(firebaseConfig.projectId).includes('여기에_') && firebaseConfig.projectId !== 'dummy-project' && firebaseConfig.apiKey && !String(firebaseConfig.apiKey).includes('여기에_'));
         try {
+            if (!firebaseConfigured) throw new Error('Firebase 실제 설정값이 입력되지 않았습니다.');
             app = initializeApp(firebaseConfig);
             db = getFirestore(app);
             auth = getAuth(app);
@@ -769,8 +774,21 @@
                 signInAnonymously(auth);
             }
         } catch(e) {
-            console.warn("Firebase fallback:", e);
+            console.warn("Firebase 미설정/연결 실패: 다른 기기와 데이터가 공유되지 않습니다. Firebase 설정과 Firestore 보안 규칙을 확인하세요.", e);
         }
+
+        // 관리자 로그인은 HTML 안에 비밀번호를 저장하지 않고 Firebase 이메일/비밀번호 인증을 사용합니다.
+        window.firebaseAdminLogin = async function(email, password) {
+            if (!firebaseConfigured || !auth) throw new Error('Firebase 실제 설정이 필요합니다.');
+            const credential = await signInWithEmailAndPassword(auth, email, password);
+            return credential.user;
+        };
+        window.firebaseAdminLogout = async function() {
+            if (auth) {
+                await signOut(auth);
+                try { await signInAnonymously(auth); } catch(e) {}
+            }
+        };
 
         window.cloudSaveApplication = async function(regData) {
             try {
@@ -794,7 +812,7 @@
                 if (!emailResponse.ok) console.warn('서비스 신청 이메일 발송 설정을 확인하세요:', emailResponse.status);
             } catch(err) { console.warn('서비스 신청 이메일 발송 실패:', err); }
 
-            if (db && firebaseConfig.projectId !== 'dummy-project') {
+            if (db && firebaseConfigured) {
                 try {
                     const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
                     await addDoc(colRef, regData);
@@ -814,7 +832,7 @@
                 status: 'completed'
             };
             let savedToCloud = false;
-            if (db && firebaseConfig.projectId !== 'dummy-project') {
+            if (db && firebaseConfigured) {
                 try {
                     const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'records');
                     await addDoc(colRef, record);
@@ -838,7 +856,6 @@
                         test_name: record.testName || '심리검사',
                         name: record.name || '',
                         phone: record.phone || '',
-                        application_code: record.applicationCode || '해당 없음',
                         completed_at: record.completedAt || record.date || new Date().toLocaleString('ko-KR'),
                         record_id: record.recordId,
                         message: '검사 결과 상세 내용은 관리자 화면에서 확인하세요. 이 이메일에는 점수와 소견을 포함하지 않았습니다.'
@@ -859,7 +876,7 @@
                 recs = JSON.parse(localStorage.getItem('cheonghyang_records') || '[]');
             } catch(e) {}
 
-            if (db && firebaseConfig.projectId !== 'dummy-project') {
+            if (db && firebaseConfigured) {
                 try {
                     const appSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'applications'));
                     appSnap.forEach(doc => {
@@ -893,24 +910,13 @@
         let userData = { code: '', pin: '', name: '', phone: '', gender: '', age: '', disability: '', treatment: '', symptoms: [], region: '', services: [], date: '' };
         let viewHistory = ['home'];
 
-        function toggleTestApplicationCode(prefix) {
-            const typeEl = document.getElementById(prefix === 'fun' ? 'fun-user-type' : 'test-user-type');
-            const codeEl = document.getElementById(prefix === 'fun' ? 'fun-application-code' : 'test-application-code');
-            if (typeEl && codeEl) {
-                const isApplicant = typeEl.value === 'applicant';
-                codeEl.classList.toggle('hidden', !isApplicant);
-                codeEl.required = isApplicant;
-            }
-        }
-
         function readTestIdentity(prefix) {
             const isFun = prefix === 'fun';
             const type = document.getElementById(isFun ? 'fun-user-type' : 'test-user-type').value;
             const name = document.getElementById(isFun ? 'fun-user-name' : 'test-user-name').value.trim();
             const phone = document.getElementById(isFun ? 'fun-user-phone' : 'test-user-phone').value.trim();
-            const code = document.getElementById(isFun ? 'fun-application-code' : 'test-application-code').value.trim().toUpperCase();
             const err = document.getElementById(isFun ? 'fun-user-err' : 'test-user-err');
-            if (!name || !phone || (type === 'applicant' && !code)) {
+            if (!name || !phone) {
                 err.classList.remove('hidden');
                 return null;
             }
@@ -919,8 +925,8 @@
                 sourceType: type,
                 sourceLabel: type === 'applicant' ? '서비스 신청자 검사' : '일반 방문자 직접 검사',
                 name,
-                phone,
-                applicationCode: type === 'applicant' ? code : '',
+                phone: phone.replace(/[\s-]/g, ''),
+                applicationCode: '',
                 recordId: (crypto.randomUUID ? crypto.randomUUID() : `TEST-${Date.now()}-${Math.random().toString(36).slice(2,8)}`)
             };
         }
@@ -1874,25 +1880,34 @@
             listContainer.classList.remove('hidden');
         }
 
-        function verifyAdmin() {
-            const pw = document.getElementById('admin-pw').value.trim();
+        async function verifyAdmin() {
+            const email = document.getElementById('admin-email').value.trim();
+            const pw = document.getElementById('admin-pw').value;
             const err = document.getElementById('admin-pw-err');
-            if (pw === '2213') {
-                err.classList.add('hidden');
+            const button = document.querySelector('#admin-login-box button[onclick="verifyAdmin()"]');
+            err.classList.add('hidden');
+            if (button) { button.disabled = true; button.textContent = '로그인 확인 중...'; }
+            try {
+                if (!window.firebaseAdminLogin) throw new Error('Firebase 인증 함수를 찾을 수 없습니다.');
+                await window.firebaseAdminLogin(email, pw);
                 document.getElementById('admin-login-box').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
-                document.getElementById('admin-status').innerText = "클라우드 인증 완료";
-                loadAdminDashboard();
-            } else {
+                document.getElementById('admin-status').innerText = 'Firebase 관리자 인증 완료';
+                await loadAdminDashboard();
+            } catch (e) {
+                console.error('관리자 로그인 실패:', e);
                 err.classList.remove('hidden');
+            } finally {
+                if (button) { button.disabled = false; button.textContent = '로그인'; }
             }
         }
 
-        function lockAdmin() {
+        async function lockAdmin() {
+            try { if (window.firebaseAdminLogout) await window.firebaseAdminLogout(); } catch(e) {}
             document.getElementById('admin-login-box').classList.remove('hidden');
             document.getElementById('admin-dashboard').classList.add('hidden');
             document.getElementById('admin-pw').value = '';
-            document.getElementById('admin-status').innerText = "잠금 상태";
+            document.getElementById('admin-status').innerText = '잠금 상태';
         }
 
         async function loadAdminDashboard() {
@@ -1939,7 +1954,7 @@
                         </div>
                         <div id="admin-test-detail-${idx}" class="hidden p-2.5 bg-slate-50 border-t border-slate-100 space-y-1 text-slate-600 text-[10px]">
                             <p>· 검사 유형: ${t.sourceLabel || (t.sourceType === 'applicant' ? '서비스 신청자 검사' : '일반 방문자 직접 검사')}</p>
-                            <p>· 신청 접수번호: ${t.applicationCode || '해당 없음'}</p>
+                            <p>· 신청 내역 연결: ${regs.some(r => (r.name || '').trim() === (t.name || '').trim() && String(r.phone || '').replace(/[\s-]/g, '') === String(t.phone || '').replace(/[\s-]/g, '')) ? '이름·전화번호 일치 신청 내역 있음' : '일치 신청 내역 없음(관리자 확인 필요)'}</p>
                             <p>· 검사 완료일시: ${t.completedAt || t.date || '-'}</p>
                             <p>· 기록 ID: ${t.recordId || '-'}</p>
                             <p class="font-bold text-pink-700">· 결과: ${t.score || '-'}</p>
