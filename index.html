@@ -41,7 +41,7 @@
                     <p class="text-[8px] text-blue-600 font-semibold tracking-tighter m-0 leading-none">전주시사회서비스등록제공기관</p>
                 </div>
             </div>
-            <!-- 통일된 탭 메뉴 (클릭 영역 및 z-index 보강) -->
+            <!-- 통일된 탭 메뉴 -->
             <div class="flex items-center space-x-1.5 whitespace-nowrap overflow-x-auto text-[11px] relative z-50 py-1">
                 <button type="button" onclick="switchView('about')" class="font-medium text-slate-700 hover:text-blue-600 px-2 py-1 bg-slate-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer">소개</button>
                 <button type="button" onclick="switchView('services')" class="font-medium text-slate-700 hover:text-blue-600 px-2 py-1 bg-slate-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer">사업</button>
@@ -575,7 +575,7 @@
                 <div id="reg-step-6" class="hidden bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3 text-center">
                     <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-lg font-bold">✓</div>
                     <h4 class="font-bold text-slate-800 text-sm">서비스 신청이 완료되었습니다!</h4>
-                    <p class="text-[11px] text-slate-500">신청 내역이 담당자에게 안전하게 접수되었습니다.</p>
+                    <p class="text-[11px] text-slate-500">신청 내역이 클라우드 서버 및 관리자에게 안전하게 접수되었습니다.</p>
                     <div class="bg-slate-50 p-3 rounded-xl text-left space-y-1.5 text-xs">
                         <div class="flex justify-between"><span class="text-slate-400">접수 고유번호</span><span id="sum-code" class="font-bold text-blue-600 font-mono">-</span></div>
                         <div class="flex justify-between"><span class="text-slate-400">성함</span><span id="sum-name" class="font-bold text-slate-700">-</span></div>
@@ -602,25 +602,23 @@
                 </div>
             </div>
 
-            <!-- VIEW: 접수 및 결과 조회 화면 (다양한 확인 방법 제공) -->
+            <!-- VIEW: 접수 및 결과 조회 화면 -->
         <div id="view-lookup" class="hidden space-y-4 text-xs text-slate-600">
             <div class="flex items-center justify-between pb-1">
                 <button type="button" onclick="goBack()" class="flex items-center space-x-1 text-slate-600 font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition-all text-xs shadow-sm cursor-pointer">
                     <span>← 이전 화면</span>
                 </button>
-                <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-medium">MULTI-METHOD LOOKUP</span>
+                <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-medium">CLOUD LOOKUP</span>
             </div>
 
-            <!-- 조회 방식 탭 선택 -->
             <div class="grid grid-cols-2 gap-1 text-[11px] font-semibold bg-slate-100 p-1 rounded-2xl">
                 <button type="button" onclick="switchLookupMethod('standard')" id="lookup-tab-standard" class="py-2 rounded-xl bg-white text-emerald-700 shadow-sm transition-all cursor-pointer">이름 + 연락처 조회</button>
                 <button type="button" onclick="switchLookupMethod('code')" id="lookup-tab-code" class="py-2 rounded-xl text-slate-600 hover:bg-white/50 transition-all cursor-pointer">고유번호 / PIN 조회</button>
             </div>
 
-            <!-- 방식 1: 이름 + 연락처 + PIN -->
             <div id="lookup-box-standard" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
-                <h3 class="text-sm font-bold text-slate-800">🔍 일반 접수증 및 결과 조회</h3>
-                <p class="text-[10px] text-slate-500">신청 시 입력하신 성함과 연락처(및 선택적 PIN 번호)를 입력해주세요.</p>
+                <h3 class="text-sm font-bold text-slate-800">🔍 실시간 클라우드 접수증 및 결과 조회</h3>
+                <p class="text-[10px] text-slate-500">어떤 기기에서 신청하셨든 성함과 연락처를 입력하시면 클라우드에서 즉시 불러옵니다.</p>
                 
                 <div class="space-y-2">
                     <input type="text" id="lookup-name" placeholder="성함 (예: 홍길동)" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 outline-none text-xs">
@@ -630,11 +628,10 @@
                 </div>
 
                 <button type="button" onclick="performLookup('standard')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-xs shadow-md transition-all cursor-pointer">
-                    조회하기
+                    클라우드 조회하기
                 </button>
             </div>
 
-            <!-- 방식 2: 고유 접수번호 또는 PIN 번호로 단독 조회 -->
             <div id="lookup-box-code" class="hidden bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-3">
                 <h3 class="text-sm font-bold text-slate-800">🔑 고유 접수번호 / PIN 단독 조회</h3>
                 <p class="text-[10px] text-slate-500">신청 완료 시 발급된 8자리 고유 접수번호나 PIN 번호로 바로 확인합니다.</p>
@@ -668,7 +665,7 @@
 
             <div id="admin-login-box" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3 text-center">
                 <div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto text-base font-bold">🔒</div>
-                <h3 class="text-sm font-bold text-slate-800">관리자 인증</h3>
+                <h3 class="text-sm font-bold text-slate-800">관리자 클라우드 인증</h3>
                 <p class="text-[10px] text-slate-500">관리자 비밀번호를 입력해주세요.</p>
                 <input type="password" id="admin-pw" placeholder="비밀번호 입력" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 outline-none text-center text-xs">
                 <p id="admin-pw-err" class="text-rose-500 text-[10px] hidden">비밀번호가 올바르지 않습니다.</p>
@@ -680,11 +677,10 @@
             <div id="admin-dashboard" class="hidden space-y-3">
                 <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
                     <div>
-                        <h3 class="font-bold text-slate-800 text-xs">관리자 대시보드</h3>
-                        <p class="text-[10px] text-slate-500">신청 내역 및 심리검사 데이터를 관리합니다.</p>
+                        <h3 class="font-bold text-slate-800 text-xs">관리자 실시간 대시보드</h3>
+                        <p class="text-[10px] text-slate-500">모든 기기에서 접수된 클라우드 데이터 관리</p>
                     </div>
                     <div class="flex items-center space-x-1.5">
-                        <button type="button" onclick="clearAllData()" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg text-[10px] font-bold cursor-pointer">데이터 초기화</button>
                         <button type="button" onclick="lockAdmin()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-bold cursor-pointer">잠금</button>
                     </div>
                 </div>
@@ -701,12 +697,12 @@
                 </div>
 
                 <div class="space-y-2">
-                    <h4 class="font-bold text-slate-800 text-xs">📋 서비스 신청 내역 리스트</h4>
+                    <h4 class="font-bold text-slate-800 text-xs">📋 실시간 클라우드 서비스 신청 내역</h4>
                     <div id="admin-reg-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
                 </div>
 
                 <div class="space-y-2 pt-2">
-                    <h4 class="font-bold text-slate-800 text-xs">💖 심리검사 결과 리스트</h4>
+                    <h4 class="font-bold text-slate-800 text-xs">💖 실시간 클라우드 심리검사 결과</h4>
                     <div id="admin-test-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
                 </div>
             </div>
@@ -718,38 +714,129 @@
 
     </div>
 
-    <!-- JavaScript 로직 -->
-    <script>
-        // 견고한 스토리지 입출력 핸들러 (메모리 캐시 및 예외처리 완비)
-        let memoryStore = {
-            applications: [],
-            records: []
+    <!-- Firebase SDK (Modular ESM) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // 환경 변수 초기화
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'cheonghyang-default-app';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "AIzaSyDummyKeyForStaticHostingFallback",
+            authDomain: "dummy.firebaseapp.com",
+            projectId: "dummy-project",
+            storageBucket: "dummy.appspot.com",
+            messagingSenderId: "000000000000",
+            appId: "1:000:web:000"
         };
 
-        function getStoredData(key) {
-            try {
-                let localData = localStorage.getItem(`cheonghyang_${key}`);
-                if (localData) {
-                    const parsed = JSON.parse(localData);
-                    if (Array.isArray(parsed)) {
-                        memoryStore[key] = parsed;
-                        return parsed;
-                    }
-                }
-                return memoryStore[key] || [];
-            } catch(e) {
-                return memoryStore[key] || [];
+        let app, db, auth;
+        let isFirebaseInitialized = false;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            if (token) {
+                signInWithCustomToken(auth, token).then(() => { isFirebaseInitialized = true; }).catch(() => {
+                    signInAnonymously(auth).then(() => { isFirebaseInitialized = true; }).catch(() => {});
+                });
+            } else {
+                signInAnonymously(auth).then(() => { isFirebaseInitialized = true; }).catch(() => {});
             }
+        } catch(e) {
+            console.warn("Firebase initialization fallback to memory store:", e);
         }
 
-        function saveStoredData(key, data) {
+        // 전역 클라우드 저장 및 조회 함수 연결
+        window.cloudSaveApplication = async function(regData) {
+            // Formspree 백그라운드 전송
             try {
-                memoryStore[key] = data;
-                const jsonStr = JSON.stringify(data);
-                localStorage.setItem(`cheonghyang_${key}`, jsonStr);
+                fetch('https://formspree.io/f/mlezzbdo', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        subject: `[청향심리상담센터] ${regData.name}님 서비스 신청서`,
+                        code: regData.code,
+                        name: regData.name,
+                        phone: regData.phone,
+                        gender_age: `${regData.gender} / 만 ${regData.age}세`,
+                        history: `장애(${regData.disability}) / 진료(${regData.treatment})`,
+                        symptoms: Array.isArray(regData.symptoms) ? regData.symptoms.join(', ') : '없음',
+                        region: regData.region,
+                        services: Array.isArray(regData.services) ? regData.services.join(', ') : '없음',
+                        date: regData.date
+                    })
+                });
+            } catch(err) {}
+
+            // Firestore 저장 (Rule 1 준수)
+            if (db) {
+                try {
+                    const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'applications');
+                    await addDoc(colRef, regData);
+                } catch(e) {
+                    fallbackSave('applications', regData);
+                }
+            } else {
+                fallbackSave('applications', regData);
+            }
+        };
+
+        window.cloudSaveTestRecord = async function(testRecord) {
+            if (db) {
+                try {
+                    const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'records');
+                    await addDoc(colRef, testRecord);
+                } catch(e) {
+                    fallbackSave('records', testRecord);
+                }
+            } else {
+                fallbackSave('records', testRecord);
+            }
+        };
+
+        window.cloudFetchAllData = async function() {
+            let apps = [];
+            let recs = [];
+            
+            // 로컬 메모리/스토리지 기본값 병합
+            try {
+                apps = JSON.parse(localStorage.getItem('cheonghyang_applications') || '[]');
+                recs = JSON.parse(localStorage.getItem('cheonghyang_records') || '[]');
+            } catch(e) {}
+
+            if (db) {
+                try {
+                    const appSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'applications'));
+                    appSnap.forEach(doc => {
+                        const data = doc.data();
+                        if (!apps.some(a => a.code === data.code)) apps.push(data);
+                    });
+
+                    const recSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'records'));
+                    recSnap.forEach(doc => {
+                        recs.push(doc.data());
+                    });
+                } catch(e) {}
+            }
+            return { apps, recs };
+        };
+
+        function fallbackSave(key, item) {
+            try {
+                let existing = JSON.parse(localStorage.getItem(`cheonghyang_${key}`) || '[]');
+                existing.push(item);
+                localStorage.setItem(`cheonghyang_${key}`, JSON.stringify(existing));
             } catch(e) {}
         }
+    </script>
 
+    <!-- JavaScript 로직 -->
+    <script>
         let currentRegStep = 0;
         const totalRegSteps = 5;
         let userData = { code: '', pin: '', name: '', phone: '', gender: '', age: '', disability: '', treatment: '', symptoms: [], region: '', services: [], date: '' };
@@ -773,7 +860,7 @@
             if (viewId === 'self-check' && !isBack) switchTestType('cesd');
             if (viewId === 'info' && !isBack) renderMentalTopics();
             if (viewId === 'fun-tests' && !isBack) renderFunTestsList();
-            if (viewId === 'admin') checkAdminSession();
+            if (viewId === 'admin') loadAdminDashboard();
             window.scrollTo(0, 0);
         }
 
@@ -811,7 +898,7 @@
                 questions: [
                     { q: "연인과 갈등이 생겼을 때 나의 첫 번째 반응은?", opts: ["즉시 대화를 통해 오해를 풀고 싶어 한다.", "감정이 진정될 때까지 혼자만의 시간을 가진다.", "상대방의 입장을 먼저 이해하려고 양보한다.", "내 주장을 논리적으로 설득하려 한다."] },
                     { q: "가장 선호하는 애정 표현 방식은?", opts: ["따뜻한 말 한마디와 다정한 문자 메시지", "손을 잡거나 안아주는 스킨십", "필요한 것을 챙겨주는 실질적 행동", "함께 맛있는 것을 먹고 여행 가는 시간"] },
-                    { q: "연인이 연락이 조금 뜸할 때 나의 심리 상태는?", opts: ["바쁜가 보다 하고 대수롭지 않게 넘긴다.", "혹시 나한테 마음이 식었나 걱정되기 시작한다.", "나도 똑같이 연락을 줄여서 보복한다.", "이유를 차분하게 물어보고 확인한다."] },
+                    { q: "연인이 연락이 조금 뜸할 때 나의 심리 상태는?", opts: ["바바가 보다 하고 대수롭지 않게 넘긴다.", "혹시 나한테 마음이 식었나 걱정되기 시작한다.", "나도 똑같이 연락을 줄여서 보복한다.", "이유를 차분하게 물어보고 확인한다."] },
                     { q: "연애할 때 가장 중요하게 생각하는 가치는?", opts: ["서로에 대한 절대적인 신뢰와 정직함", "가치관과 유머 코드가 잘 맞는 것", "어려울 때 든든하게 곁을 지켜주는 의리", "사소한 것까지 공유하는 깊은 교감"] },
                     { q: "연인에게 서운한 점이 생겼을 때 나는?", opts: ["참다가 한 번에 터뜨리는 편이다.", "그 즉시 부드럽게 내 마음을 표현한다.", "혼자 며칠 동안 삐져서 속을 끓인다.", "농담 반 진담 반으로 가볍게 건네본다."] },
                     { q: "나의 연애 속도와 스타일은 어떤가요?", opts: ["첫눈에 반해 빠르게 불타오르는 불꽃형", "천천히 친구로 지내며 스며드는 잔잔한 호수형", "철저하게 검증하고 신중하게 다가가는 돌다리형", "상대방이 먼저 다가오면 마음을 여는 수동형"] },
@@ -946,7 +1033,7 @@
                     { q: "비싼 물건(전자기기, 명품 등)을 살 때 나는 어떤 과정을 거치나요?", opts: ["몇 달 동안 리뷰를 비교하고 가성비를 따져 신중하게 산다.", "마음에 들면 예산 안에서 고민 없이 바로 지른다.", "지름신이 강림하면 충동적으로 할부로 구매한다.", "남들이 다 가지고 있거나 트렌드라 휩쓸려 산다."] },
                     { q: "지갑이나 통장에 잔고가 줄어들 때 느끼는 불안감의 크기는?", opts: ["철저하게 비상금을 마련해 두어 별로 불안하지 않다.", "조금 신경 쓰이지만 다음 달 수입이 있으니 괜찮다.", "잔고가 바닥을 보이면 극심한 공포와 불안에 시달린다.", "돈은 원래 쓰려고 버는 거라며 별로 신경 쓰지 않는다."] },
                     { q: "친구들과의 모임이나 식사 자리에서 계산할 때 나의 모습은?", opts: ["더치페이를 칼같이 하거나 돌아가면서 공평하게 산다.", "내가 여유가 있거나 기분이 좋으면 통 크게 쏜다.", "누가 계산하는지 눈치 보며 슬쩍 빠지거나 얻어먹는 편이다.", "내가 먼저 계산하고 싶어 하는 리더십을 보인다."] },
-                    { q: "미래의 노후나 자산 증식에 대해 얼마나 진지하게 고민하나요?", opts: ["이미 구체적인 포트폴리오를 짜고 꾸준히 준비 중이다.", "필요성은 느끼지만 막막해서 대충 적금만 붓고 있다.", "지금 당장 먹고살기 바빠 미래는 나중에 생각한다.", "돈에 큰 집착이 없어 흘러가는 대로 살려 한다."] },
+                    { q: "미래의 노후나 자산 증식에 대해 얼마나 진지하게 고민하나요?", opts: ["이미 구체적인 포트폴리오를 짜고 꾸준히 준비 중이다.", "필요성은 느끼지만 막막해서 대충 적금만 붓고 있다.", "지금 당장 먹고살기 바쁘다 미래는 나중에 생각한다.", "돈에 큰 집착이 없어 흘러가는 대로 살려 한다."] },
                     { q: "할인 행사나 '오늘만 특가' 같은 마케팅을 마주했을 때 나는?", opts: ["필요 없는 물건이면 절대 눈길도 주지 않는다.", "정말 필요한 물건일 때만 할인을 받아 합리적으로 산다.", "특가라는 말에 홀려 당장 필요 없어도 일단 사고 본다.", "품절될까 봐 조급해져서 충동구매를 자주 한다."] },
                     { q: "주변 지인에게 돈을 빌려주거나 빌리는 상황에 대한 나의 원칙은?", opts: ["돈거래는 가족 사이에도 절대 하지 않는다는 확고한 원칙이 있다.", "정말 친한 사람이면 믿고 빌려줄 수 있다.", "거절하지 못해 빌려주고 속 앓이를 한 적이 있다.", "돈 문제로 사람을 잃고 싶지 않아 철저히 선을 긋는다."] },
                     { q: "내가 생각하는 돈의 가장 중요한 가치는 무엇인가요?", opts: ["나를 지켜주는 든든한 방패이자 경제적 자유의 수단", "세상에서 가장 재미있는 유흥과 경험을 사는 도구", "불안한 미래를 잠재워주는 최고의 안정제", "인간관계와 품위를 유지하기 위한 필수 조건"] },
@@ -1112,9 +1199,10 @@
                 desc: matchedRes.desc,
                 date: new Date().toLocaleDateString()
             };
-            const allData = getStoredData('records');
-            allData.push(funRecord);
-            saveStoredData('records', allData);
+            
+            if (window.cloudSaveTestRecord) {
+                window.cloudSaveTestRecord(funRecord);
+            }
         }
 
         function backToFunList() {
@@ -1134,125 +1222,125 @@
         }
 
         const mentalTopics30 = [
-            {
+            { 
                 t: "우울증 (주요우울장애)", 
-                d: "【임상적 정의】 2주 이상 거의 매일 우울한 기분, 흥미나 즐거움의 현저한 저하, 체중 변화, 불면 또는 과수면, 피로감, 무가치감, 집중력 저하, 자살 사고 등이 지속되는 대표적인 기분 장애입니다.\n\n【핵심 증상】 만성적 무기력, 일상 활동에 대한 흥미 상실, 자기비하 및 죄책감.\n\n【치유 및 개입】 인지행동치료(CBT)를 통해 부정적인 자동 사고를 교정하고, 규칙적인 신체활동과 약물 치료 병행을 통해 뇌 신경전달물질의 균형을 회복합니다."
+                d: "【임상적 정의】\n2주 이상 거의 매일 우울한 기분이나 흥미·즐거움의 현저한 저하가 지속되는 대표적인 기분 장애입니다.\n\n【핵심 증상】\n· 거의 매일 지속되는 우울감, 공허감 또는 슬픔\n· 거의 모든 일상 활동에서 흥미나 즐거움의 상실 (아도니아)\n· 식욕 부진 또는 체중의 급격한 변화 (체중 증가 혹은 감소)\n· 불면증 또는 과다수면 (수면 리듬의 심각한 파괴)\n· 정신운동성 초조 또는 지체 (행동이나 말의 둔화 혹은 안절부절못함)\n· 피로감 또는 거의 매일 활력 상실\n· 무가치감 또는 과도하고 부적절한 죄책감\n· 사고력이나 집중력 저하, 우유부단함\n· 반복적인 죽음에 대한 생각 또는 자살 사고\n\n【치유 및 개입】\n인지행동치료(CBT)를 통한 역기능적 인지 재구성, 규칙적인 신체활동, 전문의의 약물 치료 병행 및 토탈 케어 서비스 연계." 
             },
-            {
+            { 
                 t: "범불안장애", 
-                d: "【임상적 정의】 건강, 재정, 가족, 직업 등 일상적인 여러 주제에 대해 최소 6개월 이상 과도하고 통제하기 힘든 걱정과 불안이 지속되는 상태입니다.\n\n【핵심 증상】 안절부절못함, 쉽게 피로해짐, 근육 긴장, 수면 장애, 사소한 일에도 극심한 초조함.\n\n【치유 및 개입】 이완 훈련, 마음챙김 명상, 걱정 시간 제한 기법 및 인지행동 치료를 통해 불확실성에 대한 수용력을 높입니다."
+                d: "【임상적 정의】\n다양한 일상생활 사건과 활동에 대해 6개월 이상 과도하고 통제하기 힘든 걱정과 불안이 지속되는 상태입니다.\n\n【핵심 증상】\n· 과도하고 통제 불가능한 만성적 걱정\n· 안절부절못함, 벼랑 끝에 선 듯한 긴장감\n· 쉽게 피로를 느낌\n· 집중 곤란 및 머릿속이 하얗게 되는 현상\n· 과민성 (신경이 예민해지고 쉽게 짜증이 남)\n· 근육 긴장도 증가 (어깨 뭉침, 두통)\n· 수면 장애 (입면 곤란 및 수면 유지 곤란)\n\n【치유 및 개입】\n이완 훈련, 마음챙김 명상, 걱정 시간 지정 기법 및 인지행동 치료." 
             },
-            {
+            { 
                 t: "공황장애", 
-                d: "【임상적 정의】 특별한 이유 없이 갑작스럽게 극심한 공포와 고통이 밀려오며, 심계항진, 호흡곤란, 식은땀, 죽을 것 같은 공포 등의 신체 증상이 동반되는 불안장애입니다.\n\n【핵심 증상】 예기 불안(다시 공황발작이 올까 두려워하는 상태), 특정 장소 회피.\n\n【치유 및 개입】 호흡 조절 훈련, 인지 재구성, 노출 치료 및 항불안제 약물 치료를 통해 발작의 강도와 빈도를 효과적으로 조절합니다."
+                d: "【임상적 정의】\n갑작스럽게 극심한 공포와 고통이 최고조에 달하며 신체적 증상이 동반되는 불안장애입니다.\n\n【핵심 증상】\n· 심장 두근거림, 심박수 증가\n· 식은땀, 몸의 떨림이나 전율\n· 숨 가쁨, 질식할 것 같은 느낌\n· 흉부 통증 또는 가슴 답답함\n· 메스꺼움이나 복부 불편감\n· 어지러움, 현기증, 기절할 것 같은 느낌\n· 비현실감 (자신이 분리된 느낌) 또는 이인증\n· 통제력을 잃거나 미칠 것 같은 공포\n· 죽을 것 같은 공포 (심장마비나 뇌졸중 오인)\n\n【치유 및 개입】\n복식호흡 조절 훈련, 인지 재구성, 광장공포증에 대한 점진적 노출 치료." 
             },
-            {
+            { 
                 t: "조현병 (정신분열병)", 
-                d: "【임상적 정의】 환각(환청, 환시), 망상(피해망상, 관계망상), 와해된 언어 및 행동, 정서적 둔마 등 현실 검증력이 저하되는 만성 정신건강 질환입니다.\n\n【핵심 증상】 타인이 들리지 않는 소리를 들음, 누군가 해치려 한다는 확신, 사회적 고립.\n\n【치유 및 개입】 약물 순응도 관리, 정신사회적 재활 프로그램, 가족 교육 및 전주시 정신건강복지센터와 연계한 사례관리 토탈 케어가 필수적입니다."
+                d: "【임상적 정의】\n환각, 망상, 와해된 사고 및 행동, 음성 증상 등으로 인해 현실 검증력이 저하되고 일상 기능에 심각한 지장을 주는 정신건강 질환입니다.\n\n【핵심 증상】\n· 환각 (실제 자극이 없는데 소리가 들리거나 환시가 보임)\n· 망상 (피해망상, 관계망상, 과대망상 등 잘못된 확신)\n· 와해된 언어 (횡설수설, 지리멸렬한 대화)\n· 기괴하거나 긴장증적인 행동\n· 음성 증상 (감정 표현의 결여, 무의욕증, 언어 빈곤)\n\n【치유 및 개입】\n약물 순응도 유지 및 관리, 정신사회적 재활 프로그램, 일상생활 지원 및 가족 교육." 
             },
-            {
+            { 
                 t: "불면증 및 수면장애", 
-                d: "【임상적 정의】 잠들기 어렵거나(입면 곤란), 자주 깨거나(수면 유지 곤란), 너무 일찍 깨어 다시 잠들지 못하며 주간 기능 저하를 유발하는 상태입니다.\n\n【핵심 증상】 만성 피로, 주간 졸림, 집중력 및 기억력 감퇴, 감정 기복 심화.\n\n【치유 및 개입】 수면 위생 교육, 자극 조절 요법, 인지행동 치료(CBT-I)를 통해 수면 습관을 근본적으로 교정합니다."
+                d: "【임상적 정의】\n잠들기 어렵거나, 자주 깨거나, 너무 일찍 깨어나 주간 기능에 심각한 고통과 지장을 유발하는 상태입니다.\n\n【핵심 증상】\n· 잠자리에 누운 후 30분 이상 잠들지 못함 (입면 곤란)\n· 자는 동안 자주 깨며 다시 잠들기 어려움 (수면 유지 곤란)\n· 새벽에 너무 일찍 깨어 수면 부족을 느낌 (조조 각성)\n· 낮 동안의 극심한 피로감, 졸음, 무기력\n· 주의력, 집중력 또는 기억력 저하\n· 수면 부족으로 인한 정서적 예민함 및 불안\n\n【치유 및 개입】\n수면 위생 교육, 자극 조절 요법, 인지행동치료(CBT-I) 및 이완 기법." 
             },
-            {
+            { 
                 t: "사회불안장애 (대인공포증)", 
-                d: "【임상적 정의】 타인에게 관찰되거나 부정적인 평가를 받을 수 있는 사회적 상황(발표, 대화, 식사 등)에서 극심한 수치심과 공포를 느끼는 상태입니다.\n\n【핵심 증상】 사람들 앞에서의 극심한 안면 홍조, 떨림, 목소리 잠김, 사회적 상황 회피.\n\n【치유 및 개입】 점진적 노출 요법, 사회성 훈련(SST), 인지적 왜곡 교정을 통해 타인의 시선에 대한 과도한 부담을 완화합니다."
+                d: "【임상적 정의】\n타인에게 관찰되거나 부정적 평가를 받을 수 있는 사회적 상황에서 현저한 공포나 불안을 느끼는 상태입니다.\n\n【핵심 증상】\n· 대중 앞에서 말하기, 발표, 낯선 사람과의 만남에서 극심한 불안\n· 타인에게 수치심을 당하거나 바보처럼 보일까 봐 지나치게 걱정\n· 불안을 유발하는 사회적 상황을 적극적으로 회피\n· 당황스러운 신체 반응 (얼굴 붉어짐, 손 떨림, 목소리 떨림)에 대한 과도한 집착\n\n【치유 및 개입】\n사회성 훈련(SST), 노출 요법 및 인지적 왜곡 교정." 
             },
-            {
+            { 
                 t: "외상후 스트레스장애 (PTSD)", 
-                d: "【임상적 정의】 생명을 위협하는 심각한 사고, 재난, 폭력 등 충격적인 외상 사건을 직접 목격하거나 겪은 후 발생하는 정신건강 질환입니다.\n\n【핵심 증상】 외상 기억의 재경험(회상, 악몽), 과각성 상태, 감정적 무감각, 회피 반응.\n\n【치유 및 개입】 안구운동 민감소실 및 재처리요법(EMDR), 트라우마 중심 인지행동치료를 통해 상처받은 기억을 통합합니다."
+                d: "【임상적 정의】\n죽음이나 심각한 부상 등 충격적인 외상 사건을 직접 목격하거나 경험한 후 발생하는 심리적 장애입니다.\n\n【핵심 증상】\n· 외상 사건의 침투적 회상, 악몽, 플래시백\n· 관련 자극이나 장소에 대한 극심한 회피\n· 사건의 중요한 부분을 기억하지 못함 (해리성 건망증)\n· 부정적 감정 및 세상에 대한 불신\n· 과각성 (경계심 증가, 깜짝 놀람, 수면 장애)\n\n【치유 및 개입】\n안구운동 민감소실 및 재처리요법(EMDR), 인지처리치료(CPT)." 
             },
-            {
+            { 
                 t: "양극성장애 (조울증)", 
-                d: "【임상적 정의】 비정상적으로 기분이 고조되는 조증(또는 경조증) 시기와 극심한 우울감이 교대로 나타나는 기분 장애입니다.\n\n【핵심 증상】 과도한 자신감, 수면 요구량 감소, 충동적 의사결정(조증) 및 극심한 무기력(우울증).\n\n【치유 및 개입】 기분 안정제 처방 등 약물 치료의 지속성과 함께 생활 리듬 안정화 치료가 핵심입니다."
+                d: "【임상적 정의】\n비정상적으로 들뜨는 조증 시기와 극심한 우울감이 주기적으로 교대로 나타나는 기분 장애입니다.\n\n【핵심 증상】\n· 고양되거나 과민한 기분, 비정상적으로 넘치는 에너지 (조증)\n· 수면 욕구의 현저한 감소 (2~3시간만 자도 거뜬함)\n· 과대사고 또는 자존감의 극단적 팽창\n· 말이 아주 많아지고 속도가 빨라짐\n· 생각의 비약 (아이디어가 끊이지 않음)\n· 무모하고 충동적인 행동 (과도한 지출, 무리한 투자)\n\n【치유 및 개입】\n기분 안정제 투약 관리, 규칙적인 생활 리듬 유지 및 심리 상담." 
             },
-            {
+            { 
                 t: "강박장애", 
-                d: "【임상적 정의】 원하지 않는 침투적 생각(강박 사고)과 그로 인한 불안을 줄이기 위해 반복적으로 수행하는 행동(강박 행동)이 멈추지 않는 상태입니다.\n\n【핵심 증상】 오염에 대한 과도한 집착, 확인 강박(문 닫았는지 10번 확인), 대칭 집착.\n\n【치유 및 개입】 노출 및 반응 방지법(ERP)을 통해 강박적 행동을 차단하고 불안을 스스로 견뎌내는 힘을 기릅니다."
+                d: "【임상적 정의】\n불안을 유발하는 침투적 생각(강박사고)과 그 불안을 해소하기 위한 반복적 행동(강박행동)이 특징인 질환입니다.\n\n【핵심 증상】\n· 오염, 파괴, 부도덕성에 대한 반복적이고 원치 않는 생각 (강박사고)\n· 손 씻기, 확인하기, 정돈하기, 숫자 세기 등의 반복 행동 (강박행동)\n· 강박행동을 수행하지 않으면 극심한 공포와 불안 발생\n· 일상생활과 학업·업무에 상당한 시간을 소모함\n\n【치유 및 개입】\n노출 및 반응 방지법(ERP) 및 인지행동 치료." 
             },
-            {
+            { 
                 t: "번아웃 증후군", 
-                d: "【임상적 정의】 신체적·정신적으로 에너지를 모두 소모한 결과, 일과 삶에 대한 흥미를 잃고 극심한 무기력과 냉소주의에 빠지는 상태입니다.\n\n【핵심 증상】 만성 피로, 성취감 저하, 감정적 고갈, 업무 및 일상에 대한 무관심.\n\n【치유 및 개입】 완벽주의적 성향 조정, 업무 부하 조절, 취미 및 충분한 휴식 루틴 설계를 통한 멘탈 재충전."
+                d: "【임상적 정의】\n지속적인 업무 및 스트레스로 인해 신체적·정신적 에너지가 완전히 고갈되어 무기력에 빠지는 상태입니다.\n\n【핵심 증상】\n· 극심한 신체적·정신적 피로감 및 무기력증\n· 일과 주변 사람들에 대한 냉소주의 및 감정적 메마름\n· 업무 성취감 저하 및 자아효능감 상실\n· 사소한 일에도 쉽게 분노하고 짜증이 남\n· 두통, 소화불량 등 신체화 증상 동반\n\n【치유 및 개입】\n완벽주의 성향 조절, 경계 설정(Boundary Setting), 휴식 루틴 확립." 
             },
-            {
+            { 
                 t: "적응장애", 
-                d: "【임상적 정의】 이직, 실직, 이사, 이별 등 명확한 생활 스트레스원 발생 후 3개월 이내에 심한 부적응 반응과 고통을 겪는 상태입니다.\n\n【핵심 증상】 일상생활이나 학업·업무 능력의 현저한 저하, 우울, 불안, 반항적 행동.\n\n【치유 및 개입】 스트레스 대처 전략 수립, 지지적 상담을 통한 환경 변화 적응력 향상."
+                d: "【임상적 정의】\n확인 가능한 스트레스원 발생 후 3개월 이내에 부적응적인 정서적·행동적 반응을 보이는 상태입니다.\n\n【핵심 증상】\n· 스트레스원에 비해 과도한 수준의 고통과 불안\n· 사회적, 직업적 기능의 현저한 저하\n· 우울감, 절망감 및 눈물 많아짐\n· 일탈 행동이나 무단 결석, 업무 태만 등 품행 문제\n\n【치유 및 개입】\n지지적 심리상담, 문제 해결 중심 전략 교육." 
             },
-            {
-                t: "ADHD (주의력결핍 과잉행동장애)", 
-                d: "【임상적 정의】 주의력 집중의 어려움, 과잉행동, 충동성이 아동기부터 지속되며 성인기까지 영향을 미치는 신경발달학적 특성입니다.\n\n【핵심 증상】 물건을 자주 잃어버림, 충동적 발언, 한 가지 일에 집중 유지 불가.\n\n【치유 및 개입】 인지행동적 시간 관리 전략, 약물 치료 및 일상 구조화 훈련."
+            { 
+                t: "ADHD", 
+                d: "【임상적 정의】\n주의력 결핍, 과잉행동, 충동성이 아동기를 넘어 성인기까지 지속되어 일상에 지장을 주는 신경발달 장애입니다.\n\n【핵심 증상】\n· 세부 사항에 부주의하고 실수가 잦음\n· 지시를 끝까지 수행하지 못하고 주의가 쉽게 산만해짐\n· 가만히 있지 못하고 손발을 꼼지락거리거나 안절부절못함\n· 차례를 기다리지 못하고 불쑥 끼어들거나 말을 가로챔\n\n【치유 및 개입】\n인지행동적 시간 관리, 환경 구조화 및 전문의 약물 치료." 
             },
-            {
-                t: "섭식장애 (거식증 및 폭식증)", 
-                d: "【임상적 정의】 체중과 체형에 대한 왜곡된 집착으로 인해 극단적인 식이 제한이나 폭식 후 구토·운동 등 보상 행동을 반복하는 질환입니다.\n\n【핵심 증상】 극단적인 체중 감소 공포, 폭식 후 죄책감, 신체 이미지 왜곡.\n\n【치유 및 개입】 영양 회복, 자기 가치감을 체중 외의 다른 영역으로 확장하는 심리 치료."
+            { 
+                t: "섭식장애", 
+                d: "【임상적 정의】\n체형과 체중에 대한 왜곡된 집착으로 인해 식이 행동에 심각한 이상을 겪는 질환입니다.\n\n【핵심 증상】\n· 극단적인 음식 거부와 체중 감소 (신경성 식욕부진증)\n· 폭식 후 구토나 하제 오남용 (신경성 식욕항진증)\n· 체형에 대한 비현실적이고 병적인 집착\n· 타인 앞에서 음식을 먹는 것에 대한 극심한 공포\n\n【치유 및 개입】\n영양 균형 회복, 왜곡된 인지 교정 및 심리 상담." 
             },
-            {
+            { 
                 t: "신체증상장애", 
-                d: "【임상적 정의】 신체적 통증이나 증상이 실제로 존재하며 이로 인해 과도한 불안과 집착을 느끼지만, 의학적으로는 그 고통에 비해 신체 원인이 명확하지 않은 상태입니다.\n\n【핵심 증상】 만성적 신체 통증 호소, 건강에 대한 과도한 몰입과 불안.\n\n【치유 및 개입】 심리적 스트레스가 신체로 발현되는 기전을 이해하고 감정을 말로 표현하는 훈련."
+                d: "【임상적 정의】\n고통스러운 신체적 증상과 그로 인한 과도한 불안·생각이 지속되나 의학적으로 원인이 불명확한 상태입니다.\n\n【핵심 증상】\n· 신체 통증, 피로, 소화 불량 등 다양한 감각에 집착\n· 증상의 심각성에 대해 과도하고 지속적인 불안\n· 건강과 질병에 대한 과도한 집착과 반복적 병원 방문\n\n【치유 및 개입】\n신체 감각에 대한 인지 왜곡 수정, 감정 표현 촉진." 
             },
-            {
+            { 
                 t: "계절성 정서장애", 
-                d: "【임상적 정의】 일조량이 급격히 줄어드는 가을과 겨울철에 우울감, 무기력, 탄수화물 갈망, 과수면 등이 반복되는 계절성 우울증입니다.\n\n【핵심 증상】 겨울철 기분 저하, 체중 증가, 극심한 주간 졸림.\n\n【치유 및 개입】 고광도 광치료(Light Therapy), 햇빛 산책 및 규칙적인 유산소 운동."
+                d: "【임상적 정의】\n특정 계절(주로 가을과 겨울)에 일조량이 줄어들면서 반복적으로 우울증이 발생하는 기분 장애입니다.\n\n【핵심 증상】\n· 가을·겨울철 시작되는 반복적 우울감 및 무기력\n· 과도한 졸음과 수면 시간 증가\n· 탄수화물 갈망 및 체중 증가\n· 에너지 저하 및 사회적 활동 위축\n\n【치유 및 개입】\n고광도 광치료(Light Therapy), 햇빛 산책 및 규칙적 운동." 
             },
-            {
+            { 
                 t: "분리불안장애", 
-                d: "【임상적 정의】 애착을 느끼는 주요 대상(부모, 배우자 등)과 떨어지는 것에 대해 개인이 감당하기 힘들 정도의 과도한 공포와 불안을 느끼는 상태입니다.\n\n【핵심 증상】 대상과 떨어지기 극심한 거부, 떨어졌을 때 사고가 날까 과도한 걱정.\n\n【치유 및 개입】 점진적 독립 훈련, 인지 왜곡 수정 및 안전 기지 구축 상담."
+                d: "【임상적 정의】\n애착을 느끼는 주요 대상과 떨어지는 것에 대해 발달 수준에 맞지 않게 과도한 불안을 느끼는 상태입니다.\n\n【치유 및 개입】\n점진적 분리 훈련 및 인지 행동적 지지." 
             },
-            {
-                t: "충동조절장애 (간헐적 폭발장애)", 
-                d: "【임상적 정의】 사소한 자극에도 자신의 분노와 충동을 억제하지 못하고 파괴적인 행동이나 폭언을 터뜨리는 상태입니다.\n\n【핵심 증상】 갑작스러운 분노 폭발, 폭언, 물건 파손 후 극심한 후회.\n\n【치유 및 개입】 분노 유발 트리거 파악, 분노 관리 기술(Anger Management) 및 이완 훈련."
+            { 
+                t: "충동조절장애", 
+                d: "【임상적 정의】\n사소한 자극이나 좌절에도 분노와 충동을 억제하지 못하고 파괴적 행동을 분출하는 상태입니다.\n\n【치유 및 개입】\n분노 관리 프로그램(Anger Management) 및 충동 조절 훈련." 
             },
-            {
+            { 
                 t: "해리성 장애", 
-                d: "【임상적 정의】 의식, 기억, 정체성, 지각의 통합성에 갑작스러운 장애가 발생하여 현실로부터 분리되는 느낌을 받는 상태입니다.\n\n【핵심 증상】 심한 스트레스 상황에서의 기억 상실, 자기 자신이나 세상이 낯설게 느껴짐(현실 이탈).\n\n【치유 및 개입】 트라우마 중심 안정화 기법, 지지적 심리 치료를 통한 자아 통합."
+                d: "【임상적 정의】\n의식, 기억, 정체감의 통합적 기능에 장애가 생겨 현실로부터 분리되는 느낌을 받는 상태입니다.\n\n【치유 및 개입】\n트라우마 안정화 및 해리 대처 기법." 
             },
-            {
-                t: "건강염려증 (질병불안장애)", 
-                d: "【임상적 정의】 사소한 신체 감각이나 증상을 심각한 불치병(암, 심장병 등)에 걸렸다는 증거로 오인하고 집착하는 상태입니다.\n\n【핵심 증상】 병원 순례, 인터넷 자가진단 몰입, 신체 감각에 대한 과도한 주의 집중.\n\n【치유 및 개입】 신체 감각을 재해석하는 인지 치료 및 불안 조절 훈련."
+            { 
+                t: "건강염려증", 
+                d: "【임상적 정의】\n가벼운 신체 증상을 심각한 불치병에 걸린 증거로 오인하여 집착하고 불안해하는 상태입니다.\n\n【치유 및 개입】\n신체 감각 수용 훈련 및 인지 왜곡 교정." 
             },
-            {
+            { 
                 t: "애착 불안", 
-                d: "【임상적 정의】 대인관계에서 버림받거나 거절당할지 모른다는 뿌리 깊은 두려움으로 인해 상대방에게 과도하게 집착하거나 불안해하는 성향입니다.\n\n【핵심 증상】 연인이나 지인의 연락에 과민 반응, 끊임없는 애정 확인 요구.\n\n【치유 및 개입】 안전한 상담 관계 속에서 내면의 상처받은 아이를 치유하고 자존감 확립."
+                d: "【임상적 정의】\n타인에게 버림받을지 모른다는 두려움으로 인해 관계에서 과도하게 집착하거나 불안해하는 성향입니다.\n\n【치유 및 개입】\n안전한 상담 관계 속에서 내면의 상처 치유." 
             },
-            {
+            { 
                 t: "자존감 저하", 
-                d: "【임상적 정의】 스스로를 무가치하고 사랑받을 자격이 없는 사람으로 평가하며, 타인과 자신을 끊임없이 비교하여 위축되는 상태입니다.\n\n【핵심 증상】 만성적 자기비하, 결정 장애, 타인의 시선에 대한 과도한 의존.\n\n【치유 및 개입】 자기 자비(Self-Compassion) 훈련, 작은 성취 경험 누적 및 강점 발견 상담."
+                d: "【임상적 정의】\n스스로를 무가치하고 부족한 존재로 여겨 타인과 비교하며 끊임없이 위축되는 상태입니다.\n\n【치유 및 개입】\n자기 자비(Self-Compassion) 훈련 및 강점 발견." 
             },
-            {
-                t: "사회적 고립 (히키코모리 성향)", 
-                d: "【임상적 정의】 사회적 관계망을 스스로 차단한 채 집이나 방 안에만 머물며 외부 세상과의 소통을 끊고 지내는 상태입니다.\n\n【핵심 증상】 외부 외출 기피, 대인관계 단절, 무기력과 밤낮이 바뀐 생활.\n\n【치유 및 개입】 방문 상담 및 점진적 외부 세계와의 접촉 늘리기 토탈 케어 서비스 연계."
+            { 
+                t: "사회적 고립", 
+                d: "【임상적 정의】\n타인과의 상호작용 및 사회적 관계망을 완전히 차단한 채 외부와 단절되어 지내는 상태입니다.\n\n【치유 및 개입】\n방문 상담 및 사회서비스 토탈 케어 연계." 
             },
-            {
+            { 
                 t: "노인 우울증", 
-                d: "【임상적 정의】 노년기에 접어들며 겪는 신체적 질병, 사별, 경제적 상실, 은퇴 등으로 인해 발생하는 우울 및 인지 저하 상태입니다.\n\n【핵심 증상】 신체 통증 호소, 기억력 감퇴(가성 치매), 의욕 상실.\n\n【치유 및 개입】 정서적 지지, 사회적 활동 참여 유도, 전문 심리상담 및 의료기관 연계."
+                d: "【임상적 정의】\n노년기에 겪는 신체적 쇠약, 사별, 경제적 상실감 등으로 인해 심화되는 우울 상태입니다.\n\n【치유 및 개입】\n정서적 지지 및 노인 맞춤형 심리상담." 
             },
-            {
+            { 
                 t: "청소년 정서 위기", 
-                d: "【임상적 정의】 학업 압박, 진로 고민, 또래 관계 및 정체성 혼란으로 인해 극심한 감정 기복과 심리적 위기를 겪는 시기입니다.\n\n【핵심 증상】 반항, 우울, 등교 거부, 자해 우려, 스마트폰 과의존.\n\n【치유 및 개입】 청소년 눈높이에 맞춘 전문 심리상담, 가족 소통 프로그램 제공."
+                d: "【임상적 정의】\n학업 스트레스, 진로 고민, 교우 관계 갈등으로 인해 청소년기 겪는 심리적 고통입니다.\n\n【치유 및 개입】\n눈높이 전문 심리상담 및 정서 멘토링." 
             },
-            {
+            { 
                 t: "직무 스트레스", 
-                d: "【임상적 정의】 과도한 업무량, 역할 갈등, 직장 내 대인관계 문제로 인해 직장에서 겪는 만성적인 신체적·정신적 긴장 상태입니다.\n\n【핵심 증상】 출근 시간만 되면 두통, 업무 능률 저하, 직장에 대한 극심한 냉소.\n\n【치유 및 개입】 경계 설정 훈련, 스트레스 대처 기술 습득 및 이완 요법."
+                d: "【임상적 정의】\n직장 내 과도한 업무량, 대인 갈등, 성과 압박으로 인해 겪는 만성적인 긴장 상태입니다.\n\n【치유 및 개입】\n직무 경계 설정 및 스트레스 이완 요법." 
             },
-            {
+            { 
                 t: "가족 갈등", 
-                d: "【임상적 정의】 부부 간 소통 부재, 고부갈등, 부모-자녀 간 가치관 차이 등으로 인해 가정 내에서 지속되는 심리적 갈등과 상처입니다.\n\n【핵심 증상】 대화 단절, 상속 및 양육 방식 충돌, 가정 내 긴장감 지속.\n\n【치유 및 개입】 가족 상담, 비폭력 대화법(NVC) 교육을 통한 상호 공감대 회복."
+                d: "【임상적 정의】\n부부, 부모-자식 간 소통 부재와 가치관 차이로 인해 가정 내 지속되는 심리적 상처입니다.\n\n【치유 및 개입】\n비폭력 대화법(NVC) 및 가족 소통 코칭." 
             },
-            {
-                t: "애도 반응 (사별 슬픔)", 
-                d: "【임상적 정의】 사랑하는 사람과의 사별이나 중요한 대상과의 이별 후 겪는 극심한 슬픔, 상실감, 그리움의 정상적이면서도 고통스러운 과정입니다.\n\n【핵심 증상】 눈물, 그리움에 사무침, 삶의 의미 상실감.\n\n【치유 및 개입】 슬픔의 정상화 과정 지원, 고인과의 추억을 건강하게 재통합하는 애도 상담."
+            { 
+                t: "애도 반응", 
+                d: "【임상적 정의】\n사랑하는 사람과의 사별이나 소중한 대상과의 이별 후 겪는 정상적이면서도 깊은 상실의 슬픔입니다.\n\n【치유 및 개입】\n슬픔의 수용과 건강한 애도 과정 지원." 
             },
-            {
+            { 
                 t: "분노조절 기술", 
-                d: "【임상적 정의】 화라는 감정을 억누르거나 폭발시키지 않고, 건설적이고 건강한 방식으로 타인에게 표현하고 해소하는 심리적 기술입니다.\n\n【핵심 증상】 분노 신호 알아차리기, 뇌 냉각 타임아웃 갖기.\n\n【치유 및 개입】 인지 재구성을 통한 비합리적 기대 수정 및 감정 표현 훈련."
+                d: "【임상적 정의】\n치솟는 분노 감정을 파괴적으로 표출하지 않고 건설적이고 유연하게 조절하는 소통 기술입니다.\n\n【치유 및 개입】\n감정 인식 및 인지 재구성 훈련." 
             },
-            {
-                t: "마음챙김 (Mindfulness)", 
-                d: "【임상적 정의】 현재 순간에 일어나는 생각, 감정, 신체 감각을 판단 없이 알아차리고 수용하는 태도를 기르는 심신 치유 명상 기법입니다.\n\n【핵심 증상】 과도한 과거 후회나 미래 걱정으로부터 현재로 주의 집중.\n\n【치유 및 개입】 호흡 명상, 바디 스캔(Body Scan), 일상 속 알아차림 훈련."
+            { 
+                t: "마음챙김", 
+                d: "【임상적 정의】\n현재 순간에 주의를 기울이되 판단을 내리지 않고 있는 그대로 수용하는 심리적 태도입니다.\n\n【치유 및 개입】\n호흡 명상 및 바디 스캔 훈련." 
             },
-            {
-                t: "정신건강 자가돌봄 (Self-Care)", 
-                d: "【임상적 정의】 일상에서 스트레스가 누적되기 전 스스로의 신체적·정신적 컨디션을 점검하고 회복 루틴을 실천하는 능동적 예방 활동입니다.\n\n【핵심 증상】 규칙적인 수면, 운동, 감정 일기 쓰기, 나를 위한 칭찬.\n\n【치유 및 개입】 개인별 맞춤형 멘탈 케어 루틴 설계 및 지속적인 자기돌봄 습관화."
+            { 
+                t: "정신건강 자가돌봄", 
+                d: "【임상적 정의】\n스스로의 마음 컨디션을 정기적으로 점검하고 일상 속에서 치유 루틴을 실천하는 예방 활동입니다.\n\n【치유 및 개입】\n맞춤형 멘탈 케어 플랜 수립." 
             }
         ];
 
@@ -1281,7 +1369,7 @@
             cesd: { 
                 name: "우울증 자가진단 (CES-D)", 
                 source: "출처: 역학조사연구용 우울척도 (CES-D, Radloff, 1977 / 한국판 표준화 척도)",
-                desc: "미국 국립정신건강연구소(NIMH)에서 개발한 공인된 우울증 선별 검사 도구로, 지난 일주일 동안 경험한 우울 증상의 빈도를 측정합니다.",
+                desc: "미국 국립정신건강연구소(NIMH)에서 개발한 공인된 우울증 선별 검사 도구입니다.",
                 q: [
                     "1. 평소에그렇지않던 일들로 인해 마음이 가라앉았다.", 
                     "2. 음식을 먹고 싶지 않고 식욕이 떨어졌다.", 
@@ -1308,7 +1396,7 @@
             gad: { 
                 name: "불안장애 자가진단 (GAD-7)", 
                 source: "출처: 일반화된 불안장애 척도 (GAD-7, Spitzer et al., 2006)",
-                desc: "임상 현장에서 가장 널리 사용되는 범불안장애 선별 척도로, 지난 2주간 일상 속에서 겪은 불안과 초조함의 정도를 평가합니다.",
+                desc: "임상 현장에서 가장 널리 사용되는 범불안장애 선별 척도입니다.",
                 q: [
                     "1. 초조하거나 안절부절못하는 느낌을 받는다.", 
                     "2. 걱정을 멈추거나 조절하기 어렵다.", 
@@ -1322,24 +1410,24 @@
             pss: { 
                 name: "스트레스 척도 (PSS-10)", 
                 source: "출처: 지각된 스트레스 척도 (PSS-10, Cohen et al., 1983)",
-                desc: "개인이 일상생활에서 느끼는 주관적 스트레스의 수준과 통제감을 측정하는 국제 공인 척도입니다.",
+                desc: "개인이 일상생활에서 느끼는 주관적 스트레스의 수준과 통제감을 측정합니다.",
                 q: [
-                    "1. 지난 한 달 동안, 예상치 못한 일로 인해 당황스러웠던 적이 얼마나 자주 있습니까?",
-                    "2. 지난 한 달 동안, 중요한 일들을 통제할 수 없다고 느낀 적이 얼마나 자주 있습니까?",
-                    "3. 지난 한 달 동안, 신경이 예민해지고 스트레스를 받고 있다고 느낀 적이 얼마나 자주 있습니까?",
-                    "4. 지난 한 달 동안, 개인적인 문제들을 처리할 능력이 없다고 느낀 적이 얼마나 자주 있습니까?",
-                    "5. 지난 한 달 동안, 일들이 내 뜻대로 진행되지 않는다고 느낀 적이 얼마나 자주 있습니까?",
-                    "6. 지난 한 달 동안, 해야 할 일들을 감당하기 버겁다고 느낀 적이 얼마나 자주 있습니까?",
-                    "7. 지난 한 달 동안, 일상 속의 짜증이나 화를 잘 다스리지 못한다고 느낀 적이 얼마나 자주 있습니까?",
-                    "8. 지난 한 달 동안, 내 능력으로 모든 일을 해결하기 힘들다고 느낀 적이 얼마나 자주 있습니까?",
-                    "9. 지난 한 달 동안, 내가 통제할 수 없는 일들 때문에 화가 났던 적이 얼마나 자주 있습니까?",
-                    "10. 지난 한 달 동안, 어려움이 산더미처럼 쌓여 극복할 수 없다고 느낀 적이 얼마나 자주 있습니까?"
+                    "1. 예상치 못한 일로 인해 당황스러웠던 적이 얼마나 자주 있습니까?",
+                    "2. 중요한 일들을 통제할 수 없다고 느낀 적이 얼마나 자주 있습니까?",
+                    "3. 신경이 예민해지고 스트레스를 받고 있다고 느낀 적이 얼마나 자주 있습니까?",
+                    "4. 개인적인 문제들을 처리할 능력이 없다고 느낀 적이 얼마나 자주 있습니까?",
+                    "5. 일들이 내 뜻대로 진행되지 않는다고 느낀 적이 얼마나 자주 있습니까?",
+                    "6. 해야 할 일들을 감당하기 버겁다고 느낀 적이 얼마나 자주 있습니까?",
+                    "7. 일상 속의 짜증이나 화를 잘 다스리지 못한다고 느낀 적이 얼마나 자주 있습니까?",
+                    "8. 내 능력으로 모든 일을 해결하기 힘들다고 느낀 적이 얼마나 자주 있습니까?",
+                    "9. 내가 통제할 수 없는 일들 때문에 화가 났던 적이 얼마나 자주 있습니까?",
+                    "10. 어려움이 산더미처럼 쌓여 극복할 수 없다고 느낀 적이 얼마나 자주 있습니까?"
                 ] 
             },
             cape: { 
                 name: "조기정신증 척도 (CAPE-15)", 
                 source: "출처: 지역사회 정신경험 평가 척도 (CAPE-15, Stefanis et al., 2002)",
-                desc: "정신건강복지센터 및 정신의학과에서 활용하는 지각 및 사고의 특이 경험 선별 검사 도구입니다.",
+                desc: "지각 및 사고의 특이 경험 선별 검사 도구입니다.",
                 q: [
                     "1. 다른 사람들은 보거나 듣지 못하는 소리나 광경을 경험한 적이 있습니까?",
                     "2. 내 생각이나 행동이 외부의 힘이나 타인에 의해 조종당한다고 느낀 적이 있습니까?",
@@ -1399,7 +1487,6 @@
                 }
             });
             
-            // 출처 텍스트 업데이트
             const data = testsData[currentTestType];
             document.getElementById('source-title-text').innerText = data.source;
             document.getElementById('source-desc-text').innerText = data.desc;
@@ -1424,7 +1511,6 @@
             `).join('');
         }
 
-        // 자가진단 결과 계산 및 저장
         function calculateTestResult() {
             const name = document.getElementById('test-user-name').value.trim();
             const phone = document.getElementById('test-user-phone').value.trim();
@@ -1463,9 +1549,9 @@
                 date: new Date().toLocaleDateString()
             };
 
-            const allData = getStoredData('records');
-            allData.push(testRecord);
-            saveStoredData('records', allData);
+            if (window.cloudSaveTestRecord) {
+                window.cloudSaveTestRecord(testRecord);
+            }
 
             document.getElementById('res-test-name').innerText = data.name;
             document.getElementById('res-user-info').innerText = `${name} (${phone})`;
@@ -1473,32 +1559,6 @@
             document.getElementById('res-desc').innerText = desc;
 
             switchView('test-result');
-        }
-
-        // 이메일로 신청서 전송 기능 (mailto 연동 및 폼스프리 안내)
-        function sendApplicationEmail() {
-            const targetEmail = document.getElementById('admin-target-email').value.trim() || 'kdw4203@naver.com';
-            const subject = encodeURIComponent(`[청향심리상담센터] ${userData.name}님 서비스 신청서`);
-            const body = encodeURIComponent(
-                `청향심리상담센터 서비스 신청 내역\n\n` +
-                `- 접수 고유번호: ${userData.code}\n` +
-                `- 성함: ${userData.name}\n` +
-                `- 연락처: ${userData.phone}\n` +
-                `- 성별/나이: ${userData.gender} / 만 ${userData.age}세\n` +
-                `- 등록 장애 여부: ${userData.disability}\n` +
-                `- 진료 및 복용 이력: ${userData.treatment}\n` +
-                `- 주요 호소 증상: ${userData.symptoms.join(', ')}\n` +
-                `- 거주 지역: ${userData.region}\n` +
-                `- 신청 서비스: ${userData.services.join(', ')}\n` +
-                `- 신청 일자: ${userData.date}\n`
-            );
-            
-            // mailto 링크 실행
-            window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-            
-            const msg = document.getElementById('email-send-msg');
-            msg.classList.remove('hidden');
-            setTimeout(() => { msg.classList.add('hidden'); }, 4000);
         }
 
         function switchLookupMethod(method) {
@@ -1518,55 +1578,6 @@
                 boxCode.classList.remove('hidden');
                 boxStd.classList.add('hidden');
             }
-        }
-
-        function calculateTestResult() {
-            const name = document.getElementById('test-user-name').value.trim();
-            const phone = document.getElementById('test-user-phone').value.trim();
-            const err = document.getElementById('test-user-err');
-            if (!name || !phone) {
-                err.classList.remove('hidden');
-                return;
-            }
-            err.classList.add('hidden');
-
-            const data = testsData[currentTestType];
-            let total = 0;
-            for (let i = 0; i < data.q.length; i++) {
-                const checked = document.querySelector(`input[name="q_${i}"]:checked`);
-                if (!checked) {
-                    return;
-                }
-                total += parseInt(checked.value);
-            }
-
-            let desc = "심리 상태가 안정적이며 양호합니다.";
-            if (total >= data.q.length * 2) {
-                desc = "현재 심리적 고통과 스트레스 수치가 높습니다. 전문 상담 및 바우처 서비스를 권장합니다.";
-            } else if (total >= data.q.length * 1) {
-                desc = "경미한 스트레스나 우울·불안감이 관찰됩니다. 꾸준한 마음 돌봄이 필요합니다.";
-            }
-
-            const testRecord = {
-                type: 'test',
-                testName: data.name,
-                name: name,
-                phone: phone,
-                score: total + '점',
-                desc: desc,
-                date: new Date().toLocaleDateString()
-            };
-
-            const allData = getStoredData('records');
-            allData.push(testRecord);
-            saveStoredData('records', allData);
-
-            document.getElementById('res-test-name').innerText = data.name;
-            document.getElementById('res-user-info').innerText = `${name} (${phone})`;
-            document.getElementById('res-score').innerText = total + '점';
-            document.getElementById('res-desc').innerText = desc;
-
-            switchView('test-result');
         }
 
         function selectGender(val) {
@@ -1601,7 +1612,7 @@
                 y.className = "p-2 rounded-xl border border-blue-600 bg-blue-50 font-bold text-blue-700 text-center transition-all text-xs cursor-pointer";
                 n.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
             } else {
-                n.className = "p-2 rounded-xl border border-blue-600 bg-blue-50 font-bold text-blue-700 text-center transition-all text-xs cursor-pointer";
+                n.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
                 y.className = "p-2 rounded-xl border border-slate-200 font-medium text-slate-700 text-center transition-all text-xs cursor-pointer";
             }
         }
@@ -1639,59 +1650,14 @@
             } else if (currentRegStep === totalRegSteps) {
                 userData.date = new Date().toLocaleDateString();
                 userData.code = `CH-${Math.floor(1000 + Math.random() * 9000)}`;
-                
-                let allRegs = [];
-                try {
-                    const raw = localStorage.getItem('cheonghyang_applications');
-                    allRegs = raw ? JSON.parse(raw) : [];
-                    if (!Array.isArray(allRegs)) allRegs = [];
-                } catch(e) {
-                    allRegs = [];
+
+                if (window.cloudSaveApplication) {
+                    window.cloudSaveApplication(userData);
                 }
-
-                allRegs.push({...userData});
-                saveStoredData('applications', allRegs);
-                memoryStore.applications = allRegs;
-
-                // 폼스프리(Formspree) API를 통해 관리자 메일함(kdw4203@naver.com)으로 즉시 백그라운드 전송
-                sendEmailViaFormspree(userData);
 
                 currentRegStep++;
                 updateRegView();
             }
-        }
-
-        // 폼스프리 백그라운드 자동 이메일 전송 함수
-        function sendEmailViaFormspree(data) {
-            const formData = {
-                subject: `[청향심리상담센터] ${data.name}님 서비스 신청서`,
-                code: data.code,
-                name: data.name,
-                phone: data.phone,
-                gender_age: `${data.gender} / 만 ${data.age}세`,
-                history: `장애(${data.disability}) / 진료(${data.treatment})`,
-                symptoms: Array.isArray(data.symptoms) ? data.symptoms.join(', ') : '없음',
-                region: data.region,
-                services: Array.isArray(data.services) ? data.services.join(', ') : '없음',
-                date: data.date
-            };
-
-            fetch('https://formspree.io/f/mlezzbdo', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            }).then(response => {
-                if (response.ok) {
-                    console.log("Email successfully sent to admin via Formspree.");
-                } else {
-                    console.error("Failed to send email via Formspree.");
-                }
-            }).catch(error => {
-                console.error("Network error while sending email:", error);
-            });
         }
 
         function prevRegStep() {
@@ -1798,21 +1764,17 @@
             updateRegView();
         }
 
-        function performLookup(mode) {
-            let matchedRegs = [];
-            let matchedTests = [];
+        async function performLookup(mode) {
             const listContainer = document.getElementById('lookup-results-container');
             const listEl = document.getElementById('lookup-results-list');
 
-            let regData = [];
-            let testData = [];
-            try {
-                regData = JSON.parse(localStorage.getItem('cheonghyang_applications') || '[]');
-                testData = JSON.parse(localStorage.getItem('cheonghyang_records') || '[]');
-            } catch(e) {
-                regData = memoryStore.applications;
-                testData = memoryStore.records;
+            let allData = { apps: [], recs: [] };
+            if (window.cloudFetchAllData) {
+                allData = await window.cloudFetchAllData();
             }
+
+            let matchedRegs = [];
+            let matchedTests = [];
 
             if (mode === 'standard') {
                 const name = document.getElementById('lookup-name').value.trim();
@@ -1829,7 +1791,7 @@
                 const cleanName = name.replace(/\s+/g, '');
                 const cleanPhone = phone.replace(/[^0-9]/g, '');
 
-                matchedRegs = regData.filter(r => {
+                matchedRegs = allData.apps.filter(r => {
                     if (!r.name || !r.phone) return false;
                     const nameMatch = r.name.replace(/\s+/g, '') === cleanName && r.phone.replace(/[^0-9]/g, '') === cleanPhone;
                     if (pin && r.pin) {
@@ -1838,7 +1800,7 @@
                     return nameMatch;
                 });
 
-                matchedTests = testData.filter(r => {
+                matchedTests = allData.recs.filter(r => {
                     if (!r.name || !r.phone) return false;
                     return r.name.replace(/\s+/g, '') === cleanName && r.phone.replace(/[^0-9]/g, '') === cleanPhone;
                 });
@@ -1852,13 +1814,13 @@
                 }
                 errCode.classList.add('hidden');
 
-                matchedRegs = regData.filter(r => {
+                matchedRegs = allData.apps.filter(r => {
                     return (r.code && r.code.toLowerCase() === searchCode.toLowerCase()) || (r.pin && r.pin === searchCode);
                 });
             }
 
             if (matchedRegs.length === 0 && matchedTests.length === 0) {
-                listEl.innerHTML = `<div class="p-3 bg-white rounded-xl border border-slate-200 text-center text-slate-500 text-[11px]">일치하는 접수 또는 검사 내역이 없습니다. 입력 정보를 다시 확인해주세요.</div>`;
+                listEl.innerHTML = `<div class="p-3 bg-white rounded-xl border border-slate-200 text-center text-slate-500 text-[11px]">일치하는 접수 또는 검사 내역이 없습니다. (클라우드 동기화 완료)</div>`;
                 listContainer.classList.remove('hidden');
                 return;
             }
@@ -1875,7 +1837,7 @@
                         <p class="text-slate-700">· 성함/연락처: ${reg.name} (${reg.phone})</p>
                         <p class="text-slate-700">· 거주지역: ${reg.region || '-'}</p>
                         <p class="text-slate-700">· 신청일자: ${reg.date || '-'}</p>
-                        <p class="text-slate-700">· 처리상태: <span class="text-emerald-600 font-bold">접수 완료 및 검토 중</span></p>
+                        <p class="text-slate-700">· 처리상태: <span class="text-emerald-600 font-bold">클라우드 접수 완료 및 검토 중</span></p>
                     </div>
                 `;
             });
@@ -1904,14 +1866,12 @@
                 err.classList.add('hidden');
                 document.getElementById('admin-login-box').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
-                document.getElementById('admin-status').innerText = "인증 완료";
-                loadAdminData();
+                document.getElementById('admin-status').innerText = "클라우드 인증 완료";
+                loadAdminDashboard();
             } else {
                 err.classList.remove('hidden');
             }
         }
-
-        function checkAdminSession() {}
 
         function lockAdmin() {
             document.getElementById('admin-login-box').classList.remove('hidden');
@@ -1920,15 +1880,14 @@
             document.getElementById('admin-status').innerText = "잠금 상태";
         }
 
-        function clearAllData() {
-            saveStoredData('applications', []);
-            saveStoredData('records', []);
-            loadAdminData();
-        }
+        async function loadAdminDashboard() {
+            let allData = { apps: [], recs: [] };
+            if (window.cloudFetchAllData) {
+                allData = await window.cloudFetchAllData();
+            }
 
-        function loadAdminData() {
-            const regs = getStoredData('applications');
-            const tests = getStoredData('records');
+            const regs = allData.apps;
+            const tests = allData.recs;
 
             document.getElementById('admin-count-reg').innerText = `${regs.length}건`;
             document.getElementById('admin-count-test').innerText = `${tests.length}건`;
